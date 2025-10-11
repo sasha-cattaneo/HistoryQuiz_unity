@@ -1,0 +1,19 @@
+{
+  "questions": [
+    {
+      "questionText": "Who painted the Mona Lisa?",
+      "answers": ["Vincent van Gogh", "Leonardo da Vinci", "Pablo Picasso", "Michelangelo"],
+      "correctAnswers": [0, 1, 0, 0]
+    },
+    {
+      "questionText": "In which year did World War II end?",
+      "answers": ["1944", "1945", "1946", "1947"],
+      "correctAnswers": [0, 0, 1, 0]
+    },
+    {
+      "questionText": "What is the capital of Japan?",
+      "answers": ["Osaka", "Kyoto", "Tokyo", "Hiroshima"],
+      "correctAnswers": [0, 0, 1, 0]
+    }
+  ]
+}

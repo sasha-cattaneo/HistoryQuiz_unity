@@ -1,0 +1,34 @@
+{
+  "questions": [
+    {
+      "questionText": "Which animal is known as the 'King of the Jungle'?",
+      "answers": ["Tiger", "Elephant", "Lion", "Leopard"],
+      "correctAnswers": [0, 0, 1, 0]
+    },
+    {
+      "questionText": "What is the hardest natural substance on Earth?",
+      "answers": ["Gold", "Iron", "Diamond", "Platinum"],
+      "correctAnswers": [0, 0, 1, 0]
+    },
+    {
+      "questionText": "Which planet is known as the 'Red Planet'?",
+      "answers": ["Venus", "Mars", "Jupiter", "Saturn"],
+      "correctAnswers": [0, 1, 0, 0]
+    },
+    {
+      "questionText": "Who painted the Mona Lisa?",
+      "answers": ["Vincent van Gogh", "Leonardo da Vinci", "Pablo Picasso", "Michelangelo"],
+      "correctAnswers": [0, 1, 0, 0]
+    },
+    {
+      "questionText": "In which year did World War II end?",
+      "answers": ["1944", "1945", "1946", "1947"],
+      "correctAnswers": [0, 0, 1, 0]
+    },
+    {
+      "questionText": "What is the capital of Japan?",
+      "answers": ["Osaka", "Kyoto", "Tokyo", "Hiroshima"],
+      "correctAnswers": [0, 0, 1, 0]
+    }
+  ]
+}
