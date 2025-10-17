@@ -13,7 +13,7 @@ public class GameDataManager : MonoBehaviour
     private bool isDailyDone = false;
     void Start()
     {
-        string lastDaily = PlayerPrefs.GetString("lastDaily", "");
+        string lastDaily = PlayerPrefs.GetString("lastDaily", "");Debug.Log("Last daily date: " + lastDaily);Debug.Log("is daily set: "+ GameData.daily);
         isDailyDone = lastDaily == System.DateTime.Today.ToString("yyyy-MM-dd");
         populateDropdown();
         setQuiz(0);

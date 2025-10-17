@@ -133,6 +133,7 @@ public class QuizManager : MonoBehaviour
     }
     private void loadQuiz()
     {
+        Debug.Log("is daily quiz: " + GameData.daily);
         if (GameData.daily)
         {
             setDailyQuiz();
@@ -194,17 +195,16 @@ public class QuizManager : MonoBehaviour
                 int dailyStreak = PlayerPrefs.GetInt("dailyStreak", 0);
                 dailyStreak += 1;
                 PlayerPrefs.SetInt("dailyStreak", dailyStreak);
-                PlayerPrefs.Save();
                 Debug.Log("Daily quiz passed! Current streak: " + dailyStreak);
             }
             else
             {
                 PlayerPrefs.SetInt("dailyStreak", 0);
-                PlayerPrefs.Save();
                 Debug.Log("Daily quiz failed. Streak reset to 0.");
             }
+            PlayerPrefs.SetString("lastDaily", DateTime.Now.ToString("yyyy-MM-dd"));
         }
-        PlayerPrefs.SetString("lastDaily", DateTime.Now.ToString("yyyy-MM-dd"));
+        
         PlayerPrefs.Save();
 
         // Reset GameData for next quiz 
