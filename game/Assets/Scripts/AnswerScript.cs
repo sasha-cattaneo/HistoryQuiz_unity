@@ -11,6 +11,7 @@ public class AnswerScript : MonoBehaviour
     [Header("Effects")]
     public float delayBeforeNextQuestion = 2f;
     public GameObject celebrationParticles; // Assign particle system prefab
+    
     public void answer()
     {
         if (isCorrect)

@@ -2,7 +2,6 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
-
 public class SceneManage : MonoBehaviour
 {
     public void LoadScene(string sceneName)

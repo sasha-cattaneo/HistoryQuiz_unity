@@ -1,7 +1,6 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
 public class ToggleCorrectAnswerHandler : MonoBehaviour
 {
     public Sprite checkMarkSprite;

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using TMPro;
 using UnityEngine;
-
 public static class JsonHelper
 {
     public static List<T> FromJson<T>(string json)

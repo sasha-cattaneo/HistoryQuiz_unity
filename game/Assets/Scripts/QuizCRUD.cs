@@ -6,7 +6,6 @@ using SFB;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
 public class QuizCRUD : MonoBehaviour
 {
     public GameObject createPanel;
