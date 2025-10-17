@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ffceaf578284c9a5ea51de98a3aace1d
+guid: d5ffacc13e8e7c50d92178fb20ab47be
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2472278979442781974
-    second: Parchment-Roll_0
+      213: 6359964592037645092
+    second: editIcon_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Parchment-Roll_0
+      name: editIcon_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2
-        width: 426
-        height: 161
+        x: 47
+        y: 47
+        width: 418
+        height: 418
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ae0d5aced53b0bdd0800000000000000
-      internalID: -2472278979442781974
+      spriteID: 42b47749912234850800000000000000
+      internalID: 6359964592037645092
       vertices: []
       indices: 
       edges: []
@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      editIcon_0: 6359964592037645092
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

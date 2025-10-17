@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 640a3dee56147941f922a7eefbd8003b
+guid: 5ec3ebfb386b26098be4384ccce36178
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5089048237405215137
-    second: Worn-Parchment-BG-1edit_0
+      213: -6051338158382639809
+    second: White-Parchment-Button_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Worn-Parchment-BG-1edit_0
+      name: White-Parchment-Button_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 2
-        width: 465
-        height: 271
+        y: 0
+        width: 99
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f5662ac47911069b0800000000000000
-      internalID: -5089048237405215137
+      spriteID: f3516dd9104550ca0800000000000000
+      internalID: -6051338158382639809
       vertices: []
       indices: 
       edges: []
@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      White-Parchment-Button_0: -6051338158382639809
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

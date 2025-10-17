@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0effd2ce880b9ec349d17d7dff256058
+guid: 9e19299f34da8d38aaa9fdcd161d1f9a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6274004921772764546
-    second: blank_parchment_04_0
+      213: -2712918006127473988
+    second: Worn-Parchment-BG-1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: blank_parchment_04_0
+      name: Worn-Parchment-BG-1_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 823
-        height: 1080
+        y: 1
+        width: 465
+        height: 272
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e729ea6c3c14ee8a0800000000000000
-      internalID: -6274004921772764546
+      spriteID: cbac2047277c95ad0800000000000000
+      internalID: -2712918006127473988
       vertices: []
       indices: 
       edges: []
@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Worn-Parchment-BG-1_0: -2712918006127473988
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

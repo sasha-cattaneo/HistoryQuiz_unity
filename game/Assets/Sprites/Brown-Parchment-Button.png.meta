@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f3dfad9b0558c392ba907a209d44887c
+guid: 15aa612b7e6ab3da08e025cb6a9b30d3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9172853866401267843
-    second: wall128x128_0
+      213: -8689560140852027725
+    second: Brown-Parchment-Button_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: wall128x128_0
+      name: Brown-Parchment-Button_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 128
-        height: 128
+        width: 99
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d7f7594220a73b080800000000000000
-      internalID: -9172853866401267843
+      spriteID: 3be1f16571b786780800000000000000
+      internalID: -8689560140852027725
       vertices: []
       indices: 
       edges: []
@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Brown-Parchment-Button_0: -8689560140852027725
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

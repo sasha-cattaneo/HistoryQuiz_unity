@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3ed85297e50b55cc09f93c108123e4aa
+guid: ffceaf578284c9a5ea51de98a3aace1d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8213580139500906395
-    second: Worn-Parchment-BG-2_0
+      213: -2472278979442781974
+    second: Parchment-Roll_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Worn-Parchment-BG-2_0
+      name: Parchment-Roll_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 5
-        width: 465
-        height: 268
+        y: 2
+        width: 426
+        height: 161
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b97a7259e9f7cf170800000000000000
-      internalID: 8213580139500906395
+      spriteID: ae0d5aced53b0bdd0800000000000000
+      internalID: -2472278979442781974
       vertices: []
       indices: 
       edges: []
@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Parchment-Roll_0: -2472278979442781974
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
