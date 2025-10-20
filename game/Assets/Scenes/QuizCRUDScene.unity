@@ -426,7 +426,10 @@ MonoBehaviour:
   createQuizPanel: {fileID: 1048483003}
   questionPanelPrefab: {fileID: 30864967689447393, guid: 47ef3701e1059b4cea315cf9d0e21c2a, type: 3}
   errorMessage: {fileID: 79465009}
+  saveButton: {fileID: 1114231402}
   messageDuration: 2
+  folderPath: /mnt/sasha_files/workspace/unity_2d_test/thesis/Thesis_quiz_game/game/Assets/StreamingAssets/Quiz/
+  questionCount: 0
 --- !u!4 &129230443
 Transform:
   m_ObjectHideFlags: 0

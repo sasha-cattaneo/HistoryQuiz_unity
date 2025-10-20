@@ -14,11 +14,13 @@ public class QuizCRUD : MonoBehaviour
     public GameObject createQuizPanel;
     public GameObject questionPanelPrefab;
     public TextMeshProUGUI errorMessage;
+    public GameObject saveButton;
     public float messageDuration = 3f;
     private bool isEdit = false;
+    public string folderPath = Application.streamingAssetsPath + "/Quiz/";
 
     // Keep track of the number of questions added
-    private int questionCount = 0;
+    public int questionCount = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -59,7 +61,7 @@ public class QuizCRUD : MonoBehaviour
         }
     }
     // Create a new panel for the quiz and resize the parent panel
-    void addQuizPanel(string fileName)
+    public void addQuizPanel(string fileName)
     {
         // Create a new panel for the quiz and resize the parent panel
         GameObject panel = Instantiate(quizPanelPrefab, quizPanel.transform);
@@ -172,12 +174,15 @@ public class QuizCRUD : MonoBehaviour
         TMP_InputField quizNameInput = createPanel.transform.Find("QuizInput").GetComponent<TMP_InputField>();
         string quizName = quizNameInput.text;
 
-        string filePath = Application.streamingAssetsPath + "/Quiz/" + quizName + ".json";
+        string filePath = folderPath + quizName + ".json";
 
         if (!isEdit)
         {
             // Validate quiz name
-            checkQuizName(quizName);
+            if(checkQuizName(quizName) == -1)
+            {
+                return;
+            }
         }
 
         if (questionCount == 0)
@@ -252,17 +257,13 @@ public class QuizCRUD : MonoBehaviour
     // Load quiz data from file
     List<QuestionData> loadQuiz(string quizName)
     {
-        string filePath = Application.streamingAssetsPath + "/Quiz/" + quizName + ".json";
+        string filePath = folderPath + quizName + ".json";
         List<QuestionData> questions = new List<QuestionData>();
 
         if (File.Exists(filePath))
         {
             string dataAsJson = File.ReadAllText(filePath);
             questions = JsonHelper.FromJson<QuestionData>(dataAsJson);
-            foreach (var q in questions)
-            {
-                //Debug.Log(q.ToString());
-            }
             Debug.Log("Questions loaded: " + questions.Count);
         }
         else
@@ -366,15 +367,17 @@ public class QuizCRUD : MonoBehaviour
         if (isEdit) return;
 
         string quizName = value;
-        string filePath = Application.streamingAssetsPath + "/Quiz/" + quizName + ".json";
+        string filePath = folderPath + quizName + ".json";
         if (File.Exists(filePath))
         {
             ShowMessage("Nome quiz già esistente", Color.red);
             Debug.LogError("A quiz with the name " + quizName + " already exists");
+            saveButton.GetComponent<Button>().interactable = false;
         }
         else
         {
             errorMessage.gameObject.SetActive(false);
+            saveButton.GetComponent<Button>().interactable = true;
         }
     }
     // Validate quiz name when creating a new quiz
@@ -387,7 +390,7 @@ public class QuizCRUD : MonoBehaviour
             return -1;
         }
         // Check if a quiz with the same name already exists
-        string filePath = Application.streamingAssetsPath + "/Quiz/" + quizName + ".json";
+        string filePath = folderPath + quizName + ".json";
         if (File.Exists(filePath))
         {
             ShowMessage("Nome quiz già esistente", Color.red);
@@ -423,7 +426,7 @@ public class QuizCRUD : MonoBehaviour
     public void deleteQuiz(string fileName)
     {
         //Debug.Log("Attempting to delete quiz: " + fileName);
-        string filePath = Application.streamingAssetsPath + "/Quiz/" + fileName + ".json";
+        string filePath = folderPath + fileName + ".json";
         if (File.Exists(filePath))
         {
             File.Delete(filePath);
@@ -477,7 +480,7 @@ public class QuizCRUD : MonoBehaviour
             foreach (var path in paths)
             {
                 string fileName = Path.GetFileName(path);
-                string destFilePath = Application.streamingAssetsPath + "/Quiz/" + fileName;
+                string destFilePath = folderPath + fileName;
                 if (File.Exists(destFilePath))
                 {
                     ShowMessage(fileName.Replace(".json", "") + " esiste già", Color.red);
@@ -500,7 +503,7 @@ public class QuizCRUD : MonoBehaviour
     }
     public void exportQuiz(string quizName)
     {
-        string sourceFilePath = Application.streamingAssetsPath + "/Quiz/" + quizName + ".json";
+        string sourceFilePath = folderPath + quizName + ".json";
         if (!File.Exists(sourceFilePath))
         {
             Debug.LogError("Quiz file not found: " + sourceFilePath);

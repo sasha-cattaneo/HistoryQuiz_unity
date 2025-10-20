@@ -30,15 +30,15 @@ public class QuizManager : MonoBehaviour
     public int currentQuestion;
     public TextMeshProUGUI questionText;
     public TextMeshProUGUI scoreText;
-    private List<QuestionData> questions;
-    private int questionNumber = 0;
+    public List<QuestionData> questions;
+    public int questionCount = 0;
     private int score = 0;
-    private int passingScore = 0;
+    public int passingScore = 0;
     private List<QuestionData> allAvailableQuestions;
     private bool quizFinished = false;
     public SceneManage sceneManager;
 
-    private void Start()
+    void Start()
     {
         loadQuiz();
         setPassingScore();
@@ -60,16 +60,16 @@ public class QuizManager : MonoBehaviour
     }
     private void setPassingScore()
     {
-        questionNumber = questions.Count;
+        questionCount = questions.Count;
         if (GameData.daily)
         {
             // daily quiz 80% passing score
-            passingScore = questionNumber * 2 * 80 / 100;
+            passingScore = questionCount * 2 * 80 / 100;
         }
         else
         {
             // regular quiz passing score is 60%
-            passingScore = questionNumber * 2 * 60 / 100;
+            passingScore = questionCount * 2 * 60 / 100;
         }
     }
     private void setDailyQuiz()
@@ -181,12 +181,12 @@ public class QuizManager : MonoBehaviour
         string result = (score >= passingScore) ? "<color=green>" : "<color=red>";
 
         // Show final score
-        questionText.text = "Quiz completato! Punteggio: " + result + score + "</color>/" + questionNumber * 2;
+        questionText.text = "Quiz completato! Punteggio: " + result + score + "</color>/" + questionCount * 2;
         //questionText.color = (score >= passingScore) ? Color.green : Color.red;
         questionText.fontSize = 50;
         scoreText.text = "Premere un tasto per tornare al menu principale";
 
-        Debug.Log("Quiz finished! Final score: " + score + "/" + questionNumber * 2);
+        Debug.Log("Quiz finished! Final score: " + score + "/" + questionCount * 2);
         if (GameData.daily)
         {
             if (score >= passingScore)
