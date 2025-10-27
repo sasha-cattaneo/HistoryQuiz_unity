@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 public static class JsonHelper
 {
     public static List<T> FromJson<T>(string json)
@@ -113,7 +114,7 @@ public class QuizManager : MonoBehaviour
     }
     private void setRegularQuiz()
     {
-        string filePath = Application.streamingAssetsPath + "/Quiz/" + GameData.selectedQuiz + ".json";
+        string filePath = Application.streamingAssetsPath + "/Quiz/" + GameData.selectedQuiz + ".quiz";
 
         if (File.Exists(filePath))
         {
@@ -178,11 +179,10 @@ public class QuizManager : MonoBehaviour
         {
             option.SetActive(false);
         }
-        string result = (score >= passingScore) ? "<color=green>" : "<color=red>";
+        string result = (score >= passingScore) ? "<color=#009900>" : "<color=red>";
 
         // Show final score
         questionText.text = "Quiz completato! Punteggio: " + result + score + "</color>/" + questionCount * 2;
-        //questionText.color = (score >= passingScore) ? Color.green : Color.red;
         questionText.fontSize = 50;
         scoreText.text = "Premere un tasto per tornare al menu principale";
 
@@ -216,9 +216,14 @@ public class QuizManager : MonoBehaviour
     void Update()
     {
         // Only listen for input if quiz is finished
-        if (quizFinished && Input.anyKeyDown)
+        if (quizFinished &&
+            (Keyboard.current.anyKey.wasPressedThisFrame
+            || Mouse.current.leftButton.wasReleasedThisFrame
+            || Mouse.current.rightButton.wasReleasedThisFrame)
+            )
         {
             sceneManager.LoadScene("HomepageScene");
         }
+        
     }
 }

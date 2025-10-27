@@ -16,7 +16,15 @@ public class AnswerScript : MonoBehaviour
     {
         if (isCorrect)
         {
-            GetComponentInChildren<TextMeshProUGUI>().color = Color.green;
+            Color c;
+            if (ColorUtility.TryParseHtmlString("#009900", out c))
+            {
+                Debug.Log("Parsed color: " + c);
+            }else
+            {
+                c = Color.green; // fallback color
+            }
+            GetComponentInChildren<TextMeshProUGUI>().color = c;
             Debug.Log("Correct Answer!");
             StartCoroutine(waiter(0.5f));
         }

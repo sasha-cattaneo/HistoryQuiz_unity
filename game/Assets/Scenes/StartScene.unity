@@ -835,7 +835,7 @@ GameObject:
   - component: {fileID: 1912560197}
   - component: {fileID: 1912560196}
   m_Layer: 0
-  m_Name: HomeSceneLoader
+  m_Name: StartSceneManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
