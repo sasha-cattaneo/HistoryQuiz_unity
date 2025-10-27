@@ -9,49 +9,41 @@ public static class JsonHelper
 {
     static JsonSchema schema = JsonSchema.Parse(
         @"{
-        '$ref': '#/definitions/Container',
-        'definitions': {
-            'Container': {
-                'type': 'object',
-                'properties': {
-                    'questions': {
-                        'type': 'array',
-                        'required': true,
-                        'minItems': 1,
-                        'items': {
-                            '$ref': '#/definitions/Question'
+        'type': 'object',
+        'properties': {
+            'questions': {
+                'type': 'array',
+                'required': true,
+                'minItems': 1,
+                'items': 
+                {
+                    'type': 'object',
+                    'properties': {
+                        'questionText': {
+                            'type': 'string',
+                            'required': true
+                        },
+                        'answers': {
+                            'type': 'array',
+                            'items': {'type': 'string'},
+                            'minItems': 4,
+                            'maxItems': 4,
+                            'required': true
+                        },
+                        'correctAnswers': {
+                            'type': 'array',
+                            'items': {'type': 'integer'},
+                            'minItems': 4,
+                            'maxItems': 4,
+                            'required': true
                         }
-                    }
-                },
-                'additionalProperties': false,
-                'title': 'Container'
-            },
-            'Question': {
-                'type': 'object',
-                'properties': {
-                    'questionText': {
-                        'type': 'string',
-                        'required': true
                     },
-                    'answers': {
-                        'type': 'array',
-                        'items': {'type': 'string'},
-                        'minItems': 4,
-                        'maxItems': 4,
-                        'required': true
-                    },
-                    'correctAnswers': {
-                        'type': 'array',
-                        'items': {'type': 'integer'},
-                        'minItems': 4,
-                        'maxItems': 4,
-                        'required': true
-                    }
-                },
-                'additionalProperties': false,
-                'title': 'Question'
+                    'addictionalProperties': false
+                }
             }
-        }
+        },
+        'additionalProperties': false,
+        'required': true
     }");
 
     public static List<T> FromJson<T>(string json)

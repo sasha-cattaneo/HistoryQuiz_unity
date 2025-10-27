@@ -13,9 +13,10 @@ public class QuizCRUDTests
     private string testQuizFolderPath;
     private string testQuizPath;
     private QuizCRUD quizCRUD;
-    private string mockFileData = "{\"questions\":[{\"questionText\":\"Test question\",\"answers\":[\"A\",\"B\",\"C\",\"D\"],\"correctAnswers\":[1,0,0,0]}]}";
-
-    private string jsonMockData = "";
+    private string mockFileDataOneQuestion = "{\"questions\":[{\"questionText\":\"Test question\",\"answers\":[\"A\",\"B\",\"C\",\"D\"],\"correctAnswers\":[1,0,0,0]}]}";
+    private string mockFileDataMultipleQuestions = "{\"questions\":[{\"questionText\":\"Test question 1\",\"answers\":[\"A\",\"B\",\"C\",\"D\"],\"correctAnswers\":[1,0,0,0]},{\"questionText\":\"Test question 2\",\"answers\":[\"A\",\"B\",\"C\",\"D\"],\"correctAnswers\":[0,1,0,0]}]}";
+    // private string mockFileDataInvalid = "{\"questions\":[{\"questionText\":\"Test question\",\"answers\":[\"A\",\"B\",\"C\",\"D\"],\"correctAnswer\":[1,0,0]}]}";
+    private string mockFileDataInvalid = "{\"questdddddddddddddddons\":[]}";
     [UnitySetUp]
     public IEnumerator Setup()
     {
@@ -23,22 +24,37 @@ public class QuizCRUDTests
         yield return new WaitUntil(() => SceneManager.GetActiveScene().name == "QuizCRUDScene");
 
         quizCRUD = GameObject.FindFirstObjectByType<QuizCRUD>();
+        Debug.Log("Setup completed.");
     }
 
-    [UnityTearDown]
+    [TearDown]
     public void TearDown()
     {
-        if (quizCRUD != null)
-    {
-        quizCRUD.questionCount = 0;
-        quizCRUD.createPanel.SetActive(false);
-    }
 
-        if(File.Exists(quizCRUD.folderPath + "TestCreate.json"))
+        string filePath = (quizCRUD != null ? quizCRUD.folderPath : Application.streamingAssetsPath + "/Quiz/") + "TestQuiz.quiz";
+
+        if (File.Exists(filePath))
         {
-            File.Delete(quizCRUD.folderPath + "TestCreate.json");
+            try
+            {
+                File.Delete(filePath);
+                File.Delete(filePath + ".meta");
+                Debug.Log($"Deleted test file: TestQuiz.quiz");
+            }
+            catch (System.Exception ex)
+            {
+                Debug.LogWarning($"Failed to delete TestQuiz.quiz: {ex.Message}");
+            }
+        }
+        
+        
+        if (quizCRUD != null)
+        {
+            quizCRUD.questionCount = 0;
+            quizCRUD.createPanel.SetActive(false);
         }
     }
+    
     [UnityTest]
     public IEnumerator QuizCRUD_InitializationTest()
     {
@@ -76,11 +92,9 @@ public class QuizCRUDTests
         quizCRUD.createEditQuiz();
 
         // Assert
-        Assert.IsTrue(File.Exists(quizCRUD.folderPath + "TestCreate.json"), "Quiz file was not created successfully.");
+        Assert.IsTrue(File.Exists(quizCRUD.folderPath + "TestCreate.quiz"), "Quiz file was not created successfully.");
 
         yield return null;
-
-        TearDown();
     }
     [UnityTest]
     public IEnumerator QuizCRUD_CreateQuiz_with_InvalidName()
@@ -92,7 +106,8 @@ public class QuizCRUDTests
         //yield return new WaitForSeconds(2);
 
         // Act
-        quizCRUD.createPanel.transform.Find("QuizInput").GetComponent<TMP_InputField>().text = "quiz1";
+        GameObject textField = quizCRUD.createPanel.transform.Find("QuizInput").gameObject;
+        textField.GetComponent<TMP_InputField>().text = "quiz1";
 
         // Assert
         bool saveButtonEnabled = quizCRUD.createPanel.transform.Find("SaveText").GetComponent<Button>().interactable;
@@ -112,7 +127,9 @@ public class QuizCRUDTests
         //yield return new WaitForSeconds(2);
 
         // Act
-        quizCRUD.createPanel.transform.Find("QuizInput").GetComponent<TMP_InputField>().text = "";
+        GameObject a = quizCRUD.createPanel;
+        GameObject textField = a.transform.Find("QuizInput").gameObject;
+        textField.GetComponent<TMP_InputField>().text = "";
         GameObject saveButton = quizCRUD.createPanel.transform.Find("SaveText").gameObject;
         saveButton.GetComponent<Button>().onClick.Invoke();
     
@@ -126,7 +143,7 @@ public class QuizCRUDTests
     public IEnumerator QuizCRUD_EditQuiz_with_ValidData()
     {
         // Arrange
-        File.WriteAllLines(quizCRUD.folderPath + "TestCreate.json", mockFileData.Split('\n'));
+        File.WriteAllLines(quizCRUD.folderPath + "TestCreate.quiz", mockFileDataOneQuestion.Split('\n'));
         quizCRUD.addQuizPanel("TestCreate");
         yield return null;
         int childCount = quizCRUD.quizPanel.transform.childCount;
@@ -154,14 +171,13 @@ public class QuizCRUDTests
 
         yield return null;
         //yield return new WaitForSeconds(2);
-        
     }
     [UnityTest]
     public IEnumerator QuizCRUD_DeleteQuiz()
     {
         // Arrange
-        File.WriteAllLines(quizCRUD.folderPath + "TestCreate.json", mockFileData.Split('\n'));
-        quizCRUD.addQuizPanel("TestCreate");
+        File.WriteAllLines(quizCRUD.folderPath + "TestQuiz.quiz", mockFileDataOneQuestion.Split('\n'));
+        quizCRUD.addQuizPanel("TestQuiz");
         yield return null;
         int originalChildCount = quizCRUD.quizPanel.transform.childCount;
         yield return null;
@@ -175,16 +191,39 @@ public class QuizCRUDTests
         // Assert
         int newChildCount = quizCRUD.quizPanel.transform.childCount;
         Assert.AreEqual(originalChildCount - 1, newChildCount, "Quiz panel was not removed from UI.");
-        Assert.IsFalse(File.Exists(quizCRUD.folderPath + "TestCreate.json"), "Quiz file was not deleted.");
+        Assert.IsFalse(File.Exists(quizCRUD.folderPath + "TestQuiz.quiz"), "Quiz file was not deleted.");
 
-        yield return null;       
+        yield return null;
     }
+    [UnityTest]
+    public IEnumerator QuizCRUD_ValidateQuizTest()
+    {
+        // Arrange
+        // Act
+        File.WriteAllText(quizCRUD.folderPath + "TestQuiz.quiz", mockFileDataOneQuestion);
+        bool isValidOneQuestion = quizCRUD.validateQuiz(quizCRUD.folderPath + "TestQuiz.quiz");
+
+        File.WriteAllText(quizCRUD.folderPath + "TestQuiz.quiz", mockFileDataMultipleQuestions);
+        bool isValidMultipleQuestions = quizCRUD.validateQuiz(quizCRUD.folderPath + "TestQuiz.quiz");
+
+        File.WriteAllText(quizCRUD.folderPath + "TestQuiz.quiz", mockFileDataInvalid);
+        bool isNotValid = quizCRUD.validateQuiz(quizCRUD.folderPath + "TestQuiz.quiz");
+        LogAssert.Expect(LogType.Error, new System.Text.RegularExpressions.Regex("^JSON Validation Error:.*"));
+        LogAssert.Expect(LogType.Error, new System.Text.RegularExpressions.Regex("^JSON Validation Error:.*"));
+
+        // Assert
+        Assert.IsTrue(isValidOneQuestion, "The quiz validation failed for a valid quiz with one question.");
+        Assert.IsTrue(isValidMultipleQuestions, "The quiz validation failed for a valid quiz with multiple questions.");
+        Assert.IsFalse(isNotValid, "The quiz validation should fail for invalid quiz data.");
+        yield return null;
+    }
+        
     /*
     [UnityTest]
     public IEnumerator QuizCRUD_ImportQuiz()
     {
         // Arrange
-        File.WriteAllLines(quizCRUD.folderPath + "TestCreate.json", mockFileData.Split('\n'));
+        File.WriteAllLines(quizCRUD.folderPath + "TestCreate.quiz", mockFileData.Split('\n'));
         quizCRUD.addQuizPanel("TestCreate");
         yield return null;
         int childCount = quizCRUD.quizPanel.transform.childCount;
@@ -217,7 +256,7 @@ public class QuizCRUDTests
     public IEnumerator QuizCRUD_EditQuiz_with_ValidData()
     {
         // Arrange
-        File.WriteAllLines(quizCRUD.folderPath + "TestCreate.json", mockFileData.Split('\n'));
+        File.WriteAllLines(quizCRUD.folderPath + "TestCreate.quiz", mockFileData.Split('\n'));
         quizCRUD.addQuizPanel("TestCreate");
         yield return null;
         int childCount = quizCRUD.quizPanel.transform.childCount;
