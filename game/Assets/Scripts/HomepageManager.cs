@@ -42,7 +42,10 @@ public class HomepageManager : MonoBehaviour
             foreach (var file in files)
             {
                 string fileName = Path.GetFileNameWithoutExtension(file);
-                quizOptions.Add(fileName);
+                if (JsonHelper.ValidateJson(File.ReadAllText(file)))
+                {
+                    quizOptions.Add(fileName);
+                }
             }
             if (quizOptions.Count == 0)
             {

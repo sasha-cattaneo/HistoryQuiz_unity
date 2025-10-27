@@ -49,10 +49,17 @@ public class QuizCRUD : MonoBehaviour
             string[] files = Directory.GetFiles(filePath, "*.quiz");
             foreach (var file in files)
             {
-                string fileName = Path.GetFileNameWithoutExtension(file);
-                //Debug.Log("Found quiz file: " + fileName);
+                if (validateQuiz(file))
+                {
+                    string fileName = Path.GetFileNameWithoutExtension(file);
+                    //Debug.Log("Found quiz file: " + fileName);
 
-                addQuizPanel(fileName);
+                    addQuizPanel(fileName);
+                }
+                else
+                {
+                    Debug.LogError("Invalid quiz file: " + file);
+                }
             }
         }
         else
@@ -262,6 +269,11 @@ public class QuizCRUD : MonoBehaviour
 
         if (File.Exists(filePath))
         {
+            if(validateQuiz(filePath) == false)
+            {
+                Debug.LogError("Invalid quiz file: " + quizName);
+                return questions;
+            }
             string dataAsJson = File.ReadAllText(filePath);
             questions = JsonHelper.FromJson<QuestionData>(dataAsJson);
             Debug.Log("Questions loaded: " + questions.Count);
@@ -502,10 +514,19 @@ public class QuizCRUD : MonoBehaviour
                 }
                 else
                 {
-                    File.Copy(path, destFilePath);
-                    //Debug.Log("Imported quiz: " + fileName);
-                    msg += "<color=#009900>" + fileName.Replace(".quiz", "") + " importato con successo</color>\n";
-                    addQuizPanel(fileName.Replace(".quiz", ""));
+                    // Validate JSON
+                    if (validateQuiz(path) == false)
+                    {
+                        msg += "<color=red>" + fileName.Replace(".quiz", "") + " non è un file quiz valido. </color>\n";
+                        Debug.LogError("Invalid quiz file: " + fileName);
+                    }
+                    else
+                    {
+                        File.Copy(path, destFilePath);
+                        //Debug.Log("Imported quiz: " + fileName);
+                        msg += "<color=#009900>" + fileName.Replace(".quiz", "") + " importato con successo</color>\n";
+                        addQuizPanel(fileName.Replace(".quiz", ""));
+                    }
                 }
             }
             ShowMessage(msg, Color.black);
@@ -541,5 +562,11 @@ public class QuizCRUD : MonoBehaviour
         {
             Debug.Log("No file selected for export");
         }
+    }
+
+    public bool validateQuiz(string path){
+        string json = File.ReadAllText(path);
+
+        return JsonHelper.ValidateJson(json);
     }
 }

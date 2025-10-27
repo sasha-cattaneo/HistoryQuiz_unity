@@ -4,26 +4,7 @@ using System.IO;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
-public static class JsonHelper
-{
-    public static List<T> FromJson<T>(string json)
-    {
-        Wrapper<T> wrapper = JsonUtility.FromJson<Wrapper<T>>(json);
-        return wrapper.questions;
-    }
-    public static string ToJson<T>(List<T> list)
-    {
-        Wrapper<T> wrapper = new Wrapper<T>();
-        wrapper.questions = list;
-        return JsonUtility.ToJson(wrapper, true);
-    }
 
-    [System.Serializable]
-    private class Wrapper<T>
-    {
-        public List<T> questions;
-    }
-}
 
 public class QuizManager : MonoBehaviour
 {
