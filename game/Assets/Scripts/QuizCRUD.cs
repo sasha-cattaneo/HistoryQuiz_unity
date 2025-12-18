@@ -182,20 +182,9 @@ public class QuizCRUD : MonoBehaviour
         string quizName = quizNameInput.text;
 
         string filePath = folderPath + quizName + ".quiz";
-
-        if (!isEdit)
+        // Validate quiz
+        if (validateQuiz() == -1)
         {
-            // Validate quiz name
-            if(checkQuizName(quizName) == -1)
-            {
-                return;
-            }
-        }
-
-        if (questionCount == 0)
-        {
-            ShowMessage("Devi aggiungere almeno una domanda", Color.red);
-            Debug.LogError("You must add at least one question");
             return;
         }
         // Create quiz data structure
@@ -372,6 +361,29 @@ public class QuizCRUD : MonoBehaviour
 
         return questions;
     }
+    // Validate quiz data when creating a new quiz
+    int validateQuiz()
+    {
+        if (!isEdit)
+        {
+            // Get the quiz name from the input field in the createPanel
+            TMP_InputField quizNameInput = createPanel.transform.Find("QuizInput").GetComponent<TMP_InputField>();
+            string quizName = quizNameInput.text;
+            // Validate quiz name
+            if (checkQuizName(quizName) == -1)
+            {
+                return -1;
+            }
+        }
+    
+        // Validate questions
+        if (validateQuizQuestions() == -1)
+        {
+            return -1;
+        }
+
+        return 0;
+    }
     // Validate quiz name at runtime when editing the input field
     public void checkQuizNameRuntime(string value)
     {
@@ -411,6 +423,142 @@ public class QuizCRUD : MonoBehaviour
         }
         return 0;
     }
+    // Validate quiz questions when creating or editing a quiz
+    int validateQuizQuestions()
+    {
+        // Validate that at least one question is added
+        if (questionCount == 0)
+        {
+            ShowMessage("Devi aggiungere almeno una domanda", Color.red);
+            Debug.LogError("You must add at least one question");
+            return -1;
+        }
+
+        foreach (Transform questionPanel in createQuizPanel.transform)
+        {
+            bool hasEmptyQuestion = false;
+            bool hasCorrectAnswer = false;
+            int answersFilled = 0;
+            int lastEmptyAnswerIndex = -1;
+            bool emptyAnswerIsCorrect = false;
+
+            // Find the QuestionInput GameObject by name
+            Transform inputTransform = questionPanel.Find("QuestionInput");
+            if (inputTransform != null)
+            {
+                // Get the TMP_InputField component
+                TMP_InputField textInput = inputTransform.GetComponent<TMP_InputField>();
+
+                if (textInput != null)
+                {
+                    string questionText = textInput.text;
+                    if (string.IsNullOrEmpty(questionText))
+                    {
+                        hasEmptyQuestion = true;
+                    }
+                    Debug.Log("Found question: " + questionText);
+                }
+            }
+            else
+            {
+                Debug.LogError("QuestionInput GameObject not found in panel: " + questionPanel.name);
+                break;
+            }
+            for (int i = 1; i <= 4; i++)
+            {
+                // Find the AnswerInput GameObject by name
+                inputTransform = questionPanel.Find("Answer" + i + "Input");
+                if (inputTransform != null)
+                {
+                    // Get the TMP_InputField component
+                    TMP_InputField textInput = inputTransform.GetComponent<TMP_InputField>();
+
+                    if (textInput != null)
+                    {
+                        string answerText = textInput.text;
+                        if (!string.IsNullOrEmpty(answerText))
+                        {
+                            answersFilled++;
+                        }
+                        else
+                        {
+                            lastEmptyAnswerIndex = i;
+                        }
+                        Debug.Log("Found answer " + i + ": " + answerText);
+                    }
+                }
+                else
+                {
+                    Debug.LogError("Answer" + i + "Input GameObject not found in panel: " + questionPanel.name);
+                    break;
+                }
+
+                // Find the AnswerButton GameObject by name
+                inputTransform = questionPanel.Find("Answer" + i + "Button");
+                if (inputTransform != null)
+                {
+                    // Get the TextMeshProUGUI component
+                    TextMeshProUGUI textInput = inputTransform.GetComponentInChildren<TextMeshProUGUI>();
+
+                    if (textInput != null)
+                    {
+                        string answerText = textInput.text;
+                        if (answerText == "1")
+                        {
+                            if(lastEmptyAnswerIndex == i)
+                            {
+                                emptyAnswerIsCorrect = true;
+                            }
+                            else
+                            {
+                                hasCorrectAnswer = true;
+                            }
+                            
+                        }
+                        Debug.Log("Answer " + i + " is : " + (answerText == "1" ? "correct" : "incorrect"));
+                    }
+                    else
+                    {
+                        Debug.LogError("TMP_InputField component not found on: " + inputTransform.name);
+                        break;
+                    }
+                }
+                else
+                {
+                    Debug.LogError("Answer" + i + "Button GameObject not found in panel: " + questionPanel.name);
+                    break;
+                }
+            }
+            if (hasEmptyQuestion)
+            {
+                ShowMessage("Ogni domanda deve avere un testo", Color.red);
+                Debug.LogError("Each question must have text");
+                return -1;
+            }
+            if (answersFilled < 2)
+            {
+                ShowMessage("Ogni domanda deve avere almeno due risposte", Color.red);
+                Debug.LogError("Each question must have at least two answers");
+                return -1;
+            }
+            if(emptyAnswerIsCorrect)
+            {
+                ShowMessage("Le risposte vuote non possono essere corrette", Color.red);
+                Debug.LogError("Empty answers cannot be correct");
+                return -1;
+            }
+            if(!hasCorrectAnswer)
+            {
+                ShowMessage("Ogni domanda deve avere almeno una risposta corretta", Color.red);
+                Debug.LogError("Each question must have at least one correct answer");
+                return -1;
+            }
+            
+        }
+
+        return 0;
+    }
+
     // Show an error message for a few seconds
     public void ShowMessage(string message, Color color)
     {
