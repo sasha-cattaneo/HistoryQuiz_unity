@@ -1,19 +1,139 @@
 {
-  "questions": [
-    {
-      "questionText": "Who painted the Mona Lisa?",
-      "answers": ["Vincent van Gogh", "Leonardo da Vinci", "Pablo Picasso", "Michelangelo"],
-      "correctAnswers": [0, 1, 0, 0]
-    },
-    {
-      "questionText": "In which year did World War II end?",
-      "answers": ["1944", "1945", "1946", "1947"],
-      "correctAnswers": [0, 0, 1, 0]
-    },
-    {
-      "questionText": "What is the capital of Japan?",
-      "answers": ["Osaka", "Kyoto", "Tokyo", "Hiroshima"],
-      "correctAnswers": [0, 0, 1, 0]
-    }
-  ]
+    "questions": [
+        {
+            "questionText": "Quale evento segna l’inizio della Prima guerra mondiale?",
+            "answers": [
+                "L’invasione della Polonia",
+                "La Rivoluzione russa",
+                "L’assassinio dell’arciduca Francesco Ferdinando",
+                "IL Trattato di Versailles"
+            ],
+            "correctAnswers": [
+                0,
+                0,
+                1,
+                0
+            ]
+        },
+        {
+            "questionText": "In che anno scoppiò la Rivoluzione russa?",
+            "answers": [
+                "1905",
+                "1932",
+                "1917",
+                "1920"
+            ],
+            "correctAnswers": [
+                0,
+                0,
+                1,
+                0
+            ]
+        },
+        {
+            "questionText": "Chi fu il leader dell’Unione Sovietica durante la Seconda guerra mondiale?",
+            "answers": [
+                "Lenin",
+                "Trotskij",
+                "Gorbaciov",
+                "Stalin"
+            ],
+            "correctAnswers": [
+                0,
+                0,
+                0,
+                1
+            ]
+        },
+        {
+            "questionText": "Quale trattato pose fine ufficialmente alla Prima guerra mondiale?",
+            "answers": [
+                "Trattato di Yalta",
+                "Trattato di Versailles",
+                "Trattato di Potsdam",
+                "Patto di Varsavia"
+            ],
+            "correctAnswers": [
+                0,
+                1,
+                0,
+                0
+            ]
+        },
+        {
+            "questionText": "Quale evento segnò l’inizio della Seconda guerra mondiale?",
+            "answers": [
+                "L'invasione della USSR",
+                "L'invasione della Polonia",
+                "L’attacco a Pearl Harbor",
+                "I bombardamenti atomici di Hiroshima e Nagasaki"
+            ],
+            "correctAnswers": [
+                0,
+                1,
+                0,
+                0
+            ]
+        },
+        {
+            "questionText": "Chi fu il capo del regime fascista in Italia?",
+            "answers": [
+                "Vittorio Emanuele III",
+                "Alcide De Gasperi",
+                "Benito Mussolini",
+                "Palmiro Togliatti"
+            ],
+            "correctAnswers": [
+                0,
+                0,
+                1,
+                0
+            ]
+        },
+        {
+            "questionText": "Che cos’era la Guerra Fredda?",
+            "answers": [
+                "Un conflitto armato tra USA e URSS",
+                "Una guerra combattuta solo in Europa",
+                "Una guerra civile americana",
+                "Un periodo di tensione politica e ideologica tra due blocchi"
+            ],
+            "correctAnswers": [
+                0,
+                0,
+                0,
+                1
+            ]
+        },
+        {
+            "questionText": "Quale crisi economica colpì duramente il mondo nel 1929?",
+            "answers": [
+                "La crisi petrolifera",
+                "La Grande Depressione",
+                "La crisi del debito europeo",
+                "Il crollo dell' USSR"
+            ],
+            "correctAnswers": [
+                0,
+                1,
+                0,
+                0
+            ]
+        },
+        {
+            "questionText": "In quale anno cadde il Muro di Berlino?",
+            "answers": [
+                "1985",
+                "1987",
+                "1989",
+                "1991"
+            ],
+            "correctAnswers": [
+                0,
+                0,
+                1,
+                0
+            ]
+        }
+    ]
 }

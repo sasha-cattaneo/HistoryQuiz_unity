@@ -1,19 +1,169 @@
 {
-  "questions": [
-    {
-      "questionText": "Which animal is known as the 'King of the Jungle'?",
-      "answers": ["Tiger", "Elephant", "Lion", "Leopard"],
-      "correctAnswers": [0, 0, 1, 0]
-    },
-    {
-      "questionText": "What is the hardest natural substance on Earth?",
-      "answers": ["Gold", "Iron", "Diamond", "Platinum"],
-      "correctAnswers": [0, 0, 1, 0]
-    },
-    {
-      "questionText": "Which planet is known as the 'Red Planet'?",
-      "answers": ["Venus", "Mars", "Jupiter", "Saturn"],
-      "correctAnswers": [0, 1, 0, 0]
-    }
-  ]
+    "questions": [
+        {
+            "questionText": "In che anno finì la Prima guerra mondiale?",
+            "answers": [
+                "1917",
+                "1918",
+                "1919",
+                "1920"
+            ],
+            "correctAnswers": [
+                0,
+                1,
+                0,
+                0
+            ]
+        },
+        {
+            "questionText": "Quale impero crollò dopo la Prima guerra mondiale?",
+            "answers": [
+                "Impero britannico",
+                "Impero giapponese",
+                "Impero ottomano",
+                "Impero romano"
+            ],
+            "correctAnswers": [
+                0,
+                0,
+                1,
+                0
+            ]
+        },
+        {
+            "questionText": "Chi guidò la Rivoluzione d’Ottobre?",
+            "answers": [
+                "Stalin",
+                "Lenin",
+                "Marx",
+                "Kerenskij"
+            ],
+            "correctAnswers": [
+                0,
+                1,
+                0,
+                0
+            ]
+        },
+        {
+            "questionText": "Cos’era il Patto di Varsavia?",
+            "answers": [
+                "Un accordo economico",
+                "Un’alleanza militare socialista",
+                "Un trattato di pace",
+                "Un’organizzazione ONU"
+            ],
+            "correctAnswers": [
+                0,
+                1,
+                0,
+                0
+            ]
+        },
+        {
+            "questionText": "Quale ideologia si affermò in Italia negli anni ’20?",
+            "answers": [
+                "Liberalismo",
+                "Socialismo",
+                "Fascismo",
+                "Comunismo"
+            ],
+            "correctAnswers": [
+                0,
+                0,
+                1,
+                0
+            ]
+        },
+        {
+            "questionText": "Chi era Adolf Hitler?",
+            "answers": [
+                "Un generale prussiano",
+                "Un leader comunista",
+                "Il capo del partito nazista",
+                "Un re tedesco"
+            ],
+            "correctAnswers": [
+                0,
+                0,
+                1,
+                0
+            ]
+        },
+        {
+            "questionText": "In quale paese nacque il nazismo?",
+            "answers": [
+                "Germania",
+                "Austria",
+                "Italia",
+                "Polonia"
+            ],
+            "correctAnswers": [
+                1,
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "questionText": "Quale paese NON faceva parte dell’Asse?",
+            "answers": [
+                "Italia",
+                "Germania",
+                "Francia",
+                "Giappone"
+            ],
+            "correctAnswers": [
+                0,
+                0,
+                1,
+                0
+            ]
+        },
+        {
+            "questionText": "In che anno iniziò la Seconda guerra mondiale?",
+            "answers": [
+                "1937",
+                "1938",
+                "1039",
+                "1040"
+            ],
+            "correctAnswers": [
+                0,
+                0,
+                1,
+                0
+            ]
+        },
+        {
+            "questionText": "Quale evento fece entrare gli USA nella Seconda guerra mondiale?",
+            "answers": [
+                "Invasione della Polonia",
+                "Attacco a Pearl Harbor",
+                "Battaglia di El Alamein",
+                "Sbarco in Normandia"
+            ],
+            "correctAnswers": [
+                0,
+                1,
+                0,
+                0
+            ]
+        },
+        {
+            "questionText": "Che cos’era la Gestapo?",
+            "answers": [
+                "Un partito politico",
+                "La polizia segreta nazista",
+                "Un sindacato",
+                "Un esercito"
+            ],
+            "correctAnswers": [
+                0,
+                1,
+                0,
+                0
+            ]
+        }
+    ]
 }

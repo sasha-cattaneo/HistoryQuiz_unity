@@ -1,18 +1,93 @@
 {
     "questions": [
         {
-            "questionText": "test q",
+            "questionText": "Dove avvenne lo sbarco in Normandia?",
             "answers": [
-                "1",
-                "3",
-                "4",
-                "2"
+                "Italia",
+                "Belgio",
+                "Francia",
+                "Gran Bretagna"
             ],
             "correctAnswers": [
+                0,
+                0,
+                1,
+                0
+            ]
+        },
+        {
+            "questionText": "In che anno finì la Seconda guerra mondiale in Europa?",
+            "answers": [
+                "1944",
+                "1945",
+                "1946",
+                "1947"
+            ],
+            "correctAnswers": [
+                0,
                 1,
                 0,
+                0
+            ]
+        },
+        {
+            "questionText": "Quali città giapponesi furono colpite dalla bomba atomica?Tokyo e Kyoto",
+            "answers": [
+                "Tokyo e Kyoto",
+                "Hiroshima e Nagasaki",
+                "Osaka e Kobe",
+                "Yokohama e Nagoya"
+            ],
+            "correctAnswers": [
                 0,
-                1
+                1,
+                0,
+                0
+            ]
+        },
+        {
+            "questionText": "Chi era il presidente USA durante la fine della Seconda guerra mondiale?",
+            "answers": [
+                "Truman",
+                "Eisenhower",
+                "Roosevelt",
+                "Kennedy"
+            ],
+            "correctAnswers": [
+                0,
+                0,
+                1,
+                0
+            ]
+        },
+        {
+            "questionText": "In che anno l’Italia divenne una repubblica?",
+            "answers": [
+                "1945",
+                "1946",
+                "1948",
+                "1949"
+            ],
+            "correctAnswers": [
+                0,
+                1,
+                0,
+                0
+            ]
+        },
+        {
+            "questionText": "In che anno entrò in vigore la Costituzione italiana?",
+            "answers": [
+                "1946",
+                "1947",
+                "1948",
+                "1950"
+            ],
+            "correctAnswers": [
+                0,
+                0,
+                1,
+                0
             ]
         }
     ]

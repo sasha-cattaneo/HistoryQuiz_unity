@@ -558,7 +558,6 @@ public class QuizCRUD : MonoBehaviour
 
         return 0;
     }
-
     // Show an error message for a few seconds
     public void ShowMessage(string message, Color color)
     {
@@ -634,7 +633,7 @@ public class QuizCRUD : MonoBehaviour
             new ExtensionFilter("Tutti i file", "*" ),
         };
         string[] paths = StandaloneFileBrowser.OpenFilePanel("Importa File", "", extensions, true);
-        
+
         if (paths.Length > 0 && !string.IsNullOrEmpty(paths[0]))
         {
             string msg = "";
@@ -684,6 +683,7 @@ public class QuizCRUD : MonoBehaviour
             Debug.Log("No file selected for import");
         }
     }
+    // Export a quiz to a specified file
     public void exportQuiz(string quizName)
     {
         string sourceFilePath = folderPath + quizName + ".quiz";
@@ -711,7 +711,7 @@ public class QuizCRUD : MonoBehaviour
             Debug.Log("No file selected for export");
         }
     }
-
+    // Validate quiz JSON structure
     public bool validateQuiz(string path){
         string json = File.ReadAllText(path);
 
