@@ -19,40 +19,65 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global/global}
-    \entry{important-paper}{inproceedings}{}{}
-      \name{author}{2}{}{%
-        {{hash=bd051a2f7a5f377e3a62581b0e0f8577}{%
-           family={Doe},
-           familyi={D\bibinitperiod},
-           given={John},
-           giveni={J\bibinitperiod}}}%
-        {{hash=5d0ddda3a367ceb26fbaeca02e391c22}{%
-           family={Smith},
-           familyi={S\bibinitperiod},
-           given={John},
-           giveni={J\bibinitperiod}}}%
+    \entry{another-important-url}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=c09821a0d554ffcc119a14bd32e7eed2}{%
+           family={Beretta},
+           familyi={B\bibinitperiod},
+           given={Michele},
+           giveni={M\bibinitperiod}}}%
       }
-      \strng{namehash}{cd2fbccf000874afc1d5c12c5a2f7844}
-      \strng{fullhash}{cd2fbccf000874afc1d5c12c5a2f7844}
-      \strng{fullhashraw}{cd2fbccf000874afc1d5c12c5a2f7844}
-      \strng{bibnamehash}{cd2fbccf000874afc1d5c12c5a2f7844}
-      \strng{authorbibnamehash}{cd2fbccf000874afc1d5c12c5a2f7844}
-      \strng{authornamehash}{cd2fbccf000874afc1d5c12c5a2f7844}
-      \strng{authorfullhash}{cd2fbccf000874afc1d5c12c5a2f7844}
-      \strng{authorfullhashraw}{cd2fbccf000874afc1d5c12c5a2f7844}
-      \field{sortinit}{D}
-      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \strng{namehash}{c09821a0d554ffcc119a14bd32e7eed2}
+      \strng{fullhash}{c09821a0d554ffcc119a14bd32e7eed2}
+      \strng{fullhashraw}{c09821a0d554ffcc119a14bd32e7eed2}
+      \strng{bibnamehash}{c09821a0d554ffcc119a14bd32e7eed2}
+      \strng{authorbibnamehash}{c09821a0d554ffcc119a14bd32e7eed2}
+      \strng{authornamehash}{c09821a0d554ffcc119a14bd32e7eed2}
+      \strng{authorfullhash}{c09821a0d554ffcc119a14bd32e7eed2}
+      \strng{authorfullhashraw}{c09821a0d554ffcc119a14bd32e7eed2}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Proceedings of the Big Conf}
-      \field{month}{6}
-      \field{title}{Paper title}
-      \field{year}{2017}
+      \field{title}{M. UniBG LaTeX Thesis Template [Computer software]}
+      \field{urlday}{24}
+      \field{urlmonth}{10}
+      \field{urlyear}{2025}
+      \field{urldateera}{ce}
       \true{nocite}
-      \field{pages}{185\bibrangedash 200}
-      \range{pages}{16}
-      \verb{doi}
-      \verb https://doi.org/doi/reference/number
+      \verb{urlraw}
+      \verb https://github.com/micheleberetta98/unibg-thesis-template
+      \endverb
+      \verb{url}
+      \verb https://github.com/micheleberetta98/unibg-thesis-template
+      \endverb
+    \endentry
+    \entry{important-paper}{inproceedings}{}{}
+      \name{author}{1}{}{%
+        {{hash=4620b0b13ad8f9bd22959e67747d701a}{%
+           family={GoStudent},
+           familyi={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{4620b0b13ad8f9bd22959e67747d701a}
+      \strng{fullhash}{4620b0b13ad8f9bd22959e67747d701a}
+      \strng{fullhashraw}{4620b0b13ad8f9bd22959e67747d701a}
+      \strng{bibnamehash}{4620b0b13ad8f9bd22959e67747d701a}
+      \strng{authorbibnamehash}{4620b0b13ad8f9bd22959e67747d701a}
+      \strng{authornamehash}{4620b0b13ad8f9bd22959e67747d701a}
+      \strng{authorfullhash}{4620b0b13ad8f9bd22959e67747d701a}
+      \strng{authorfullhashraw}{4620b0b13ad8f9bd22959e67747d701a}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Future of Education Report 2025}
+      \field{year}{2025}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://www.gostudent.org/static/documents/en-gb/education-report/2025.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.gostudent.org/static/documents/en-gb/education-report/2025.pdf
       \endverb
     \endentry
     \entry{important-url}{online}{}{}

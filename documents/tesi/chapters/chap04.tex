@@ -20,12 +20,12 @@ Inoltre durante questa fase sono stati scelti gli strumenti utilizzati poi duran
 
 Riprendendo il capitolo 3, il gioco è stato sviluppato utilizzando il \textit{game engine} Unity, per gestire l’intero gioco, e il linguaggio di programmazione C\#, per scriverne la logica.
 
-\begin{table}[h]
+\begin{table}[ht]
     \begin{tabular}{@{}lll@{}}
     \toprule
     \textbf{\begin{tabular}[c]{@{}l@{}}N.\\ Settimana\end{tabular}} & \textbf{Fase}                                                                                  & \textbf{Obiettivo}                        \\ \midrule
     36-37                                                           & Sviluppo piano di lavoro                                                                       & \textit{Software Development Plan}        \\
-    38-39                                                           & \begin{tabular}[c]{@{}l@{}}Design del progetto\\ (diagrammi e requisiti)\end{tabular}          & \textit{Software Requirements and Design} \\
+    38-39                                                           & \begin{tabular}[c]{@{}l@{}}Design del progetto\\ (diagrammi e requisiti)\end{tabular}          & \begin{tabular}[c]{@{}l@{}}\textit{Software Requirements} \\ \textit{and Design}\end{tabular} \\
     40                                                              & \begin{tabular}[c]{@{}l@{}}Inizio sviluppo gioco: Homepage e \\ funzionalità quiz\end{tabular} & \textit{Alpha 1.0}                        \\
     41                                                              & Continuo sviluppo: CRUD quiz                                                                   & \textit{Alpha 2.0}                        \\
     42                                                              & Fine sviluppo gioco: rifinitura grafica                                                        & \textit{Release Candidate}                \\
@@ -36,9 +36,9 @@ Riprendendo il capitolo 3, il gioco è stato sviluppato utilizzando il \textit{g
     \caption{Fasi dello sviluppo del serious game}
 \end{table}
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
-    \includegraphics[width=16cm]{images/gantt2.png}
+    \includegraphics[width=15cm]{images/gantt2.png}
     \caption{Diagramma di Gantt dello sviluppo del serious game}
 \end{figure}
 
@@ -118,12 +118,12 @@ Questo è consistito nell’identificare e valutare i possibili rischi e, in bas
     \toprule
     \textbf{Nome}                                                                 & \textbf{Descrizione}                                                                                        & \textbf{Probabilità} & \textbf{Pericolosità} & \textbf{Prevenzione}                                                                                      \\ \midrule
     \textit{Scope creep}                                                          & \begin{tabular}[c]{@{}l@{}}Provare ad\\ implementare\\ troppi requisiti\end{tabular}                        & Media                & Alta                  & \begin{tabular}[c]{@{}l@{}}Requisiti ben\\ definiti e chiara\\ pianificazione\\ degli sprint\end{tabular} \\
-                                                                                &                                                                                                             & \multicolumn{1}{l}{} & \multicolumn{1}{l}{}  &                                                                                                           \\
-    \begin{tabular}[c]{@{}l@{}}Ritardi di \\ sviluppo\end{tabular}                & \begin{tabular}[c]{@{}l@{}}Ritardi di sviluppo\\ rispetto al\\ piano scelto\end{tabular}                    & Media                & Media                 & \begin{tabular}[c]{@{}l@{}}Definizione di\\ obiettivi intermedi\\ raggiungibili\end{tabular}              \\
-                                                                                &                                                                                                             & \multicolumn{1}{l}{} & \multicolumn{1}{l}{}  &                                                                                                           \\
-    \begin{tabular}[c]{@{}l@{}}Corruzione dei \\ dati di salvataggio\end{tabular} & \begin{tabular}[c]{@{}l@{}}Perdita di dati\\ a causa di un\\ problema di\\ hardware o software\end{tabular} & Bassa                & Bassa                 & \begin{tabular}[c]{@{}l@{}}Implementare\\ backup automatici\end{tabular}                                  \\
-                                                                                &                                                                                                             & \multicolumn{1}{l}{} & \multicolumn{1}{l}{}  &                                                                                                           \\
-    Bug del codice                                                                & \begin{tabular}[c]{@{}l@{}}Presenza di bug nel\\ codice di logica\\ del gioco\end{tabular}                  & Alta                 & Alta                  & \begin{tabular}[c]{@{}l@{}}Implementare\\ test esaustivi\\ durante l’intero\\ sviluppo\end{tabular}       \\ \bottomrule
+                                                                                  &                                                                                                             & \multicolumn{1}{l}{} & \multicolumn{1}{l}{}  &                                                                                                           \\
+    \begin{tabular}[c]{@{}l@{}}Ritardi di \\ sviluppo\end{tabular}                & \begin{tabular}[c]{@{}l@{}}Ritardi di sviluppo\\ rispetto al\\ piano scelto\end{tabular}                    & Media                & Media                 & \begin{tabular}[c]{@{}l@{}}Definizione di\\ obiettivi\\ intermedi\\ raggiungibili\end{tabular}              \\
+                                                                                  &                                                                                                             & \multicolumn{1}{l}{} & \multicolumn{1}{l}{}  &                                                                                                           \\
+    \begin{tabular}[c]{@{}l@{}}Corruzione\\dei dati di\\ salvataggio\end{tabular} & \begin{tabular}[c]{@{}l@{}}Perdita di dati\\ a causa di\\un problema\end{tabular}                           & Bassa                & Bassa                 & \begin{tabular}[c]{@{}l@{}}Implementare\\backup\\automatici\end{tabular}                                  \\
+                                                                                  &                                                                                                             & \multicolumn{1}{l}{} & \multicolumn{1}{l}{}  &                                                                                                           \\
+    \begin{tabular}[c]{@{}l@{}}Bug nel\\codice\end{tabular}                       & \begin{tabular}[c]{@{}l@{}}Presenza di bug\\nella logica\\del gioco\end{tabular}                            & Alta                 & Alta                  & \begin{tabular}[c]{@{}l@{}}Implementare\\ test esaustivi\\ durante l’intero\\ sviluppo\end{tabular}       \\ \bottomrule
     \end{tabular}
     \caption{Analisi dei rischi del progetto}
 \end{table}
@@ -147,7 +147,7 @@ Il diagramma delle classi seguente illustra le principali classi del sistema e l
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=15.5cm]{images/class_diagram1.drawio.png}
+    \includegraphics[width=15cm]{images/class_diagram1.drawio.png}
     \caption{Diagramma delle classi del serious game}
 \end{figure}
 
