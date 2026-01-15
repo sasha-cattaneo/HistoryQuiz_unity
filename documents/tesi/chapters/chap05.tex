@@ -1,0 +1,45 @@
+\chapter{Gioco sviluppato}
+Il \textit{serious game} \textcolor{red}{NOME} consiste in un programma \textit{cross-platform}, sia per computer sia per dispositivi mobili, per la gestione e l’esecuzione di quiz.
+
+Il progetto è stato pensato per un utilizzo scolastico. L’insegnante ha accesso alla finestra di gestione dei quiz, dalla quale ha l’abilità di creare e modificare i quiz per adattarli alla parte del programma che sta coprendo in quel periodo. Successivamente può esportare i quiz creati per darli ai propri studenti. I quali, molto semplicemente, possono importarli e giocarli.
+
+\begin{figure}[H]
+    \centering
+    %\includegraphics[width=16cm]{images/startPageScreenshot.png}
+    \caption{Pagina iniziale del gioco.}
+\end{figure}
+
+\section{Modalità di gioco implementate}
+Sono state implementate due modalità di gioco:
+\begin{itemize}
+    \item La modalità classica: nella quale l’utente, solitamente lo studente, può importare e giocare a dei quiz creati da un altro utente.
+            
+        Un quiz viene considerato completato con successo se l’utente riesce a raggiungere almeno il 60\% del punteggio massimo ottenibile.
+    \item La modalità \textit{Daily}: nella quale l’utente può giocare ad un quiz giornaliero, creato automaticamente in modo da avere un quiz diverso ogni giorno.
+
+        Se l’utente riesce a completare con successo il quiz, cioè con almeno 80\% del punteggio massimo, aumenterà di uno un contatore dei giorni consecutivi in cui il quiz giornaliero è stato completato con successo. Questo contatore viene chiamato \textit{streak}.
+
+        La streak viene resettata nel momento in cui il quiz giornaliero viene fallito o al primo giorno in cui non viene completato.
+\end{itemize}
+
+\section{Meccaniche pedagogiche implementate}
+
+\section{CRUD e Import/Export dei quiz}
+Per la gestione dei quiz è stata implementata una finestra di CRUD (Create, Read, Update, Delete) che permette all’utente di gestire i quiz presenti nel proprio dispositivo.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=13cm]{images/quizManageScreenshot.png}
+    \caption{Pagina per la gestione dei quiz.}
+\end{figure}
+Tramite questa pagina gli insegnanti possono creare o modificare i quiz per renderli adatti ai propri studenti ed al programma che stanno insegnando in quel momento.
+
+Inoltre sono state aggiunte funzionalità di import/export dei quiz, in modo da facilitare la condivisione dei quiz tra insegnanti e studenti.
+
+Nella creazione di un quiz si sceglie liberamente il nome, il numero e il contenuto delle domande. Ogni domanda ha quattro risposte e può avere una o più risposte corrette.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=13cm]{images/quizCreateScreenshot.png}
+    \caption{Schermata di creazione di un quiz.}
+\end{figure}

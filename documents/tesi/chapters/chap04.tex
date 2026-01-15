@@ -1,0 +1,174 @@
+\chapter{Progettazione}
+Per lo sviluppo di \textcolor{red}{NOME} è stato scelto un approccio agile, cioè in cui vengono rispettati i principi del \textit{Agile Manifesto}. Questo significa che il lavoro è stato concentrato sulla collaborazione, sulla flessibilità dei requisiti e sul continuo sviluppo di software funzionanti, anche quando incompleti.
+
+\textit{“Our highest priority is to satisfy the customer through early and continuous delivery of valuable software.”} (AgileManifesto.org) []
+
+\vspace{0.5cm}
+Per progettare il software mantenendo un modello compresibile e scalabile, sono stati creati vari documenti di progettazione, tra cui il \textit{Software Development Plan}, il \textit{Software Requirements and Design} e il \textit{Software Test Plan}.
+Inoltre per descrivere l’architettura del software sono stati modellati vari diagrammi UML, tra cui il diagramma dei casi d’uso e il diagramma delle classi.
+
+\section{Organizzazione del progetto}
+Il progetto è stato svolto singolarmente da Sasha Cattaneo, con l’aiuto e la consulenza dei professori di Ingegneria del Software, Gargantini Angelo Michele e Bonfanti Silvia.
+
+Anche se il lavoro è stato svolto in solitaria si è cercato di mantenere un approccio scalabile ad un lavoro in team, per questo è stato mantenuto un definito piano di progettazione ed sono stati usati GitHub, tool fondamentale per garantire il coordinamento tra diversi programmatori, e Trello, anch’esso strumento molto utile a organizzare il lavoro senza sovraccaricare i vari membri di un team.
+
+\section{Pianificazione del progetto}
+Il primo passo è stato di scrivere un \textit{Software Development Plan}, un documento scritto per impostare le prime linee guida sulla progettazione di \textcolor{red}{NOME}.
+
+Il progetto è stato pianificato in fasi lunghe una o due settimane, con ognuna uno specifico obiettivo da raggiungere.
+Inoltre durante questa fase sono stati scelti gli strumenti utilizzati poi durante il corso di tutto il progetto.
+
+Riprendendo il capitolo 3, il gioco è stato sviluppato utilizzando il \textit{game engine} Unity, per gestire l’intero gioco, e il linguaggio di programmazione C\#, per scriverne la logica.
+
+\begin{table}[h]
+    \begin{tabular}{@{}lll@{}}
+    \toprule
+    \textbf{\begin{tabular}[c]{@{}l@{}}N.\\ Settimana\end{tabular}} & \textbf{Fase}                                                                                  & \textbf{Obiettivo}                        \\ \midrule
+    36-37                                                           & Sviluppo piano di lavoro                                                                       & \textit{Software Development Plan}        \\
+    38-39                                                           & \begin{tabular}[c]{@{}l@{}}Design del progetto\\ (diagrammi e requisiti)\end{tabular}          & \textit{Software Requirements and Design} \\
+    40                                                              & \begin{tabular}[c]{@{}l@{}}Inizio sviluppo gioco: Homepage e \\ funzionalità quiz\end{tabular} & \textit{Alpha 1.0}                        \\
+    41                                                              & Continuo sviluppo: CRUD quiz                                                                   & \textit{Alpha 2.0}                        \\
+    42                                                              & Fine sviluppo gioco: rifinitura grafica                                                        & \textit{Release Candidate}                \\
+    43                                                              & Pianificazione test                                                                            & \textit{Software Test Plan}               \\
+    44                                                              & Test del software                                                                              & \textit{Release To Manufacturing}         \\
+    45                                                              & Scrittura finale tesi                                                                          & Tesi                                      \\ \bottomrule
+    \end{tabular}
+    \caption{Fasi dello sviluppo del serious game}
+\end{table}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=16cm]{images/gantt2.png}
+    \caption{Diagramma di Gantt dello sviluppo del serious game}
+\end{figure}
+
+\newpage
+\section{Analisi dei requisiti}
+Un passo fondamentale delle prime fasi è stato individuare i requisiti funzionali e non funzionali del progetto \textcolor{red}{NOME}.
+
+Durante lo sviluppo del progetto questi requisiti, divisi tra funzionali e non funzionali, sono stati raccolti nel documento \textit{Software Requirements and Design} 
+per mantenere un approccio ordinato e scalabile, da un progetto sviluppato singolarmente ad uno progettato con un team.
+
+In questo capitolo verranno identificati gli attori del sistema, definiti i requisiti funzionali e non funzionali, e descritti i casi d'uso principali.
+
+\subsection{Attori del sistema}
+Per comprendere meglio le esigenze degli utenti, sono state identificate due tipologie principali di attori:
+\begin{enumerate}
+    \item \textbf{Insegnante}: Vuole un'interfaccia chiara, la possibilità di modificare domande esistenti senza dover riscrivere tutto, e la capacità di salvare i quiz su chiavetta USB per portarli in aula. Non ha competenze di programmazione.
+    \item \textbf{Studente}: Vuole un feedback immediato sulle risposte (giusto/sbagliato), conoscere il punteggio finale e avere una sfida stimolante (es. la sfida giornaliera).
+\end{enumerate}
+
+\subsection{Requisiti funzionali}
+I requisiti funzionali descrivono ciò che il sistema deve fare. Sono stati divisi in base alle aree di funzionalità.
+
+\subsubsection{Modalità di gioco}
+\begin{itemize}
+    \item L'utente deve poter selezione e giocare a un quiz a sua scelta;
+    \item Ogni giorno deve esserci un nuovo quiz giornaliero, generato automaticamente dal sistema;
+    \item Deve essere salvata e mostrata la serie di quiz giornalieri completati con successo;
+    \item Il gioco deve mostrare un feedback positivo in caso di risposta corretta;
+    \item Il gioco deve mostrare un feedback negativo in caso di risposta sbagliata, facendo in modo che l’utente non venga disincentivato dal continuare il quiz.
+\end{itemize}
+
+\subsubsection{Gestione dei quiz}
+\begin{itemize}
+    \item L'utente deve poter creare un nuovo quiz;
+    \item L'utente deve poter modificare un quiz esistente;
+    \item L'utente deve poter eliminare un quiz esistente;
+    \item L'utente deve poter aggiungere domande a un quiz esistente;
+    \item L'utente deve poter modificare le domande di un quiz esistente;
+    \item L'utente deve poter rimuovere domande da un quiz esistente;
+    \item L'utente deve poter visualizzare la lista dei quiz esistenti;
+    \item L'utente deve poter importare e esportare un quiz da un file esterno;
+\end{itemize}
+
+\subsection{Requisiti non funzionali}
+I requisiti non funzionali individuati sono stati:
+\begin{itemize}
+    \item Usabilità: L'interfaccia utente deve essere intuitiva. Il tempo di apprendimento per un nuovo utente deve essere inferiore ai 5 minuti.
+    \item \textit{Performance}: Il gioco deve essere responsivo, dall’azione dell’utente alla risposta deve passare meno di 1 secondi (nessun lag percettibile);
+    \item Portabilità dei dati: I file dei quiz devono essere in formato JSON, per essere leggibili e modificabili esternamente;
+    \item Portabilità del gioco: Il gioco deve essere compatibili su diverse piattaforme;
+\end{itemize}
+
+\newpage
+\section{Casi d'uso principali}
+Il diagramma dei casi d'uso seguente illustra le interazioni principali tra i due attori, i docenti e i loro studenti, e il \textit{serious game}.
+
+Come si vede dal diagramma, i docenti possono creare, modificare, eliminare, importare ed esportare quiz, mentre gli studenti possono selezionare e giocare ai quiz, ricevendo feedback sulle proprie risposte.
+Anche se non mostrato nel diagramma, anche gli insegnanti possono giocare ai quiz per testarne il funzionamento.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=8cm]{images/Use_case1.drawio.png}
+    \caption{Diagramma dei casi d'uso del serious game}
+\end{figure}
+
+\newpage
+\section{Analisi dei rischi}
+La scelta di utilizzare il \textit{game engine} Unity ha permesso di prevenire vari problemi di compatibilità che ci sarebberò stati creando il progetto senza \textit{game engine}.
+
+Però questo non assicura la completa assenza di rischi, vulnerabilità e soprattutto di bug nel codice di gioco.
+
+Per prevenire possibili futuri problemi ed errori è stato fondamentale analizzare i potenziali rischi durante la prima fase del progetto.
+
+Questo è consistito nell’identificare e valutare i possibili rischi e, in base alla priorità definita, trovare possibili soluzioni da implementare successivamente.
+
+\begin{table}[H]
+    \begin{tabular}{@{}llccl@{}}
+    \toprule
+    \textbf{Nome}                                                                 & \textbf{Descrizione}                                                                                        & \textbf{Probabilità} & \textbf{Pericolosità} & \textbf{Prevenzione}                                                                                      \\ \midrule
+    \textit{Scope creep}                                                          & \begin{tabular}[c]{@{}l@{}}Provare ad\\ implementare\\ troppi requisiti\end{tabular}                        & Media                & Alta                  & \begin{tabular}[c]{@{}l@{}}Requisiti ben\\ definiti e chiara\\ pianificazione\\ degli sprint\end{tabular} \\
+                                                                                &                                                                                                             & \multicolumn{1}{l}{} & \multicolumn{1}{l}{}  &                                                                                                           \\
+    \begin{tabular}[c]{@{}l@{}}Ritardi di \\ sviluppo\end{tabular}                & \begin{tabular}[c]{@{}l@{}}Ritardi di sviluppo\\ rispetto al\\ piano scelto\end{tabular}                    & Media                & Media                 & \begin{tabular}[c]{@{}l@{}}Definizione di\\ obiettivi intermedi\\ raggiungibili\end{tabular}              \\
+                                                                                &                                                                                                             & \multicolumn{1}{l}{} & \multicolumn{1}{l}{}  &                                                                                                           \\
+    \begin{tabular}[c]{@{}l@{}}Corruzione dei \\ dati di salvataggio\end{tabular} & \begin{tabular}[c]{@{}l@{}}Perdita di dati\\ a causa di un\\ problema di\\ hardware o software\end{tabular} & Bassa                & Bassa                 & \begin{tabular}[c]{@{}l@{}}Implementare\\ backup automatici\end{tabular}                                  \\
+                                                                                &                                                                                                             & \multicolumn{1}{l}{} & \multicolumn{1}{l}{}  &                                                                                                           \\
+    Bug del codice                                                                & \begin{tabular}[c]{@{}l@{}}Presenza di bug nel\\ codice di logica\\ del gioco\end{tabular}                  & Alta                 & Alta                  & \begin{tabular}[c]{@{}l@{}}Implementare\\ test esaustivi\\ durante l’intero\\ sviluppo\end{tabular}       \\ \bottomrule
+    \end{tabular}
+    \caption{Analisi dei rischi del progetto}
+\end{table}
+
+\section{Archittettura del software}
+L'architettura del sistema è stata progettata per garantire modularità e scalabilità.
+È stata applicata una separazione logica delle responsabilità che richiama il pattern \textit{Model-View-Controller (MVC)}, adattato al contesto di un motore di gioco real-time.
+
+\subsection{Layer logici}
+Il sistema è suddiviso in tre layer principali:
+
+\begin{enumerate}
+    \item \textit{Data Layer (Model)}: Responsabile della gestione dei dati. Include classi per la rappresentazione di quiz, domande e risposte. Classi principali: \textit{QuestionData}, \textit{GameData} e \textit{JsonHelper}.
+    \item \textit{Logic Layer (Controller)}: Gestisce il flusso dell'applicazione e le regole di business. Coordina le interazioni tra i dati e la visualizzazione. Classi principali: \textit{QuizManager}, \textit{QuizCRUD}, \textit{SceneLoader}.
+    \item \textit{Presentation Layer (View)}: Responsabile della visualizzazione dei dati a schermo. Classi principali: \textit{AnswerScript} e \textit{PanelManager}.
+\end{enumerate}
+
+\newpage
+\subsection{Diagramma delle classi}
+Il diagramma delle classi seguente illustra le principali classi del sistema e le loro relazioni.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=15.5cm]{images/class_diagram1.drawio.png}
+    \caption{Diagramma delle classi del serious game}
+\end{figure}
+
+\newpage
+\section{Testing}
+Per assicurarsi il corretto funzionamento di \textcolor{red}{NOME} è stato indispensabile avere una fase di testing precisa e ben definita. Queste specifiche sono state raccolte nel documento \textit{Software Test Plan}.
+
+La fase di test del software è stata svolta sia in parallelo allo sviluppo del gioco sia come fase indipendente alla fine della scrittura del codice.
+
+Durante lo sviluppo sono stati utilizzati gli strumenti per il debugging disponibili in Unity. Questi sono stati sufficienti per assicurarsi la corretta implementazione di nuovi elementi grafici e audio e di semplici metodi.
+
+Invece per testare il corretto funzionamento del flusso di gioco e di metodi più complicati è stato utilizzato \textit{Unity Test Framwork}, un \textit{package} di Unity che implementa attributi specifici per testare elementi specifici di Unity .
+
+Grazie a questo è stato possibile creare i test necessari ed eseguirli in tempo reale tramite la finestra disponibile nel \textit{game engine}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=10cm]{images/tests.png}
+    \caption{Finestra di Unity Test Framework con i test eseguiti}
+\end{figure}
+
+L’ultimo passaggio della fase di testing è stato confermare il corretto funzionamento di \textcolor{red}{NOME} al di fuori dell’ambiente di sviluppo.
+
+La \textit{build} finale del progetto è stata esportata e testata su tre computer diversi con installati tre sistemi operativi diversi: Linux Mint 22, Windows 10 e macOS Ventura.

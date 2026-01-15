@@ -1,34 +1,158 @@
 {
   "questions": [
     {
-      "questionText": "Which animal is known as the 'King of the Jungle'?",
-      "answers": ["Tiger", "Elephant", "Lion", "Leopard"],
-      "correctAnswers": [0, 0, 1, 0]
-    },
-    {
-      "questionText": "What is the hardest natural substance on Earth?",
-      "answers": ["Gold", "Iron", "Diamond", "Platinum"],
-      "correctAnswers": [0, 0, 1, 0]
-    },
-    {
-      "questionText": "Which planet is known as the 'Red Planet'?",
-      "answers": ["Venus", "Mars", "Jupiter", "Saturn"],
+      "questionText": "In che anno finì la Prima guerra mondiale?",
+      "answers": ["1917", "1918", "1919", "1920"],
       "correctAnswers": [0, 1, 0, 0]
     },
     {
-      "questionText": "Who painted the Mona Lisa?",
-      "answers": ["Vincent van Gogh", "Leonardo da Vinci", "Pablo Picasso", "Michelangelo"],
+      "questionText": "Quale impero crollò dopo la Prima guerra mondiale?",
+      "answers": ["Impero britannico", "Impero giapponese", "Impero ottomano", "Impero statunitense"],
+      "correctAnswers": [0, 0, 1, 0]
+    },
+    {
+      "questionText": "Chi guidò la Rivoluzione d’Ottobre?",
+      "answers": ["Stalin", "Lenin", "Marx", "Kerenskij"],
       "correctAnswers": [0, 1, 0, 0]
     },
     {
-      "questionText": "In which year did World War II end?",
-      "answers": ["1944", "1945", "1946", "1947"],
+      "questionText": "Cos’era il Patto di Varsavia?",
+      "answers": ["Un accordo economico", "Un’alleanza militare socialista", "Un trattato di pace", "Un’organizzazione ONU"],
+      "correctAnswers": [0, 1, 0, 0]
+    },
+    {
+      "questionText": "Quale ideologia si affermò in Italia negli anni ’20?",
+      "answers": ["Liberalismo", "Comunismo", "Fascismo", "Socialdemocrazia"],
       "correctAnswers": [0, 0, 1, 0]
     },
     {
-      "questionText": "What is the capital of Japan?",
-      "answers": ["Osaka", "Kyoto", "Tokyo", "Hiroshima"],
+      "questionText": "In quale paese nacque il nazismo?",
+      "answers": ["Austria", "Italia", "Germania", "Ungheria"],
       "correctAnswers": [0, 0, 1, 0]
+    },
+    {
+      "questionText": "Chi era Adolf Hitler?",
+      "answers": ["Un generale prussiano", "Il capo del partito nazista", "Un leader comunista", "Un re tedesco"],
+      "correctAnswers": [0, 1, 0, 0]
+    },
+    {
+      "questionText": "Quale evento portò Hitler al potere?",
+      "answers": ["Colpo di Stato", "Elezioni democratiche", "Guerra civile", "Rivoluzione"],
+      "correctAnswers": [0, 1, 0, 0]
+    },
+    {
+      "questionText": "Che cos’era la Gestapo?",
+      "answers": ["Un partito politico", "La polizia segreta nazista", "Un sindacato", "Un esercito"],
+      "correctAnswers": [0, 1, 0, 0]
+    },
+    {
+      "questionText": "Quale paese NON faceva parte dell’Asse?",
+      "answers": ["Germania", "Italia", "Giappone", "Francia"],
+      "correctAnswers": [0, 0, 0, 1]
+    },
+
+    {
+      "questionText": "In che anno iniziò la Seconda guerra mondiale?",
+      "answers": ["1937", "1938", "1939", "1940"],
+      "correctAnswers": [0, 0, 1, 0]
+    },
+    {
+      "questionText": "Quale evento fece entrare gli USA nella Seconda guerra mondiale?",
+      "answers": ["Invasione della Polonia", "Attacco a Pearl Harbor", "Battaglia di El Alamein", "Sbarco in Normandia"],
+      "correctAnswers": [0, 1, 0, 0]
+    },
+    {
+      "questionText": "Dove avvenne lo sbarco in Normandia?",
+      "answers": ["Italia", "Belgio", "Francia", "Olanda"],
+      "correctAnswers": [0, 0, 1, 0]
+    },
+    {
+      "questionText": "In che anno finì la Seconda guerra mondiale in Europa?",
+      "answers": ["1943", "1944", "1945", "1946"],
+      "correctAnswers": [0, 0, 1, 0]
+    },
+    {
+      "questionText": "Quali città giapponesi furono colpite dalla bomba atomica?",
+      "answers": ["Tokyo e Kyoto", "Hiroshima e Nagasaki", "Osaka e Kobe", "Yokohama e Nagoya"],
+      "correctAnswers": [0, 1, 0, 0]
+    },
+    {
+      "questionText": "Chi era il presidente USA durante la fine della Seconda guerra mondiale?",
+      "answers": ["Truman", "Eisenhower", "Roosevelt", "Kennedy"],
+      "correctAnswers": [0, 0, 1, 0]
+    },
+    {
+      "questionText": "Cos’era l’Olocausto?",
+      "answers": ["Una battaglia", "Lo sterminio degli ebrei", "Una rivolta", "Un trattato"],
+      "correctAnswers": [0, 1, 0, 0]
+    },
+    {
+      "questionText": "Quale campo era un campo di sterminio nazista?",
+      "answers": ["Dachau", "Auschwitz", "Guantanamo", "Alcatraz"],
+      "correctAnswers": [0, 1, 0, 0]
+    },
+    {
+      "questionText": "In che anno l’Italia divenne una repubblica?",
+      "answers": ["1943", "1945", "1946", "1948"],
+      "correctAnswers": [0, 0, 1, 0]
+    },
+    {
+      "questionText": "Cos’è la Costituzione italiana?",
+      "answers": ["Una legge ordinaria", "La legge fondamentale dello Stato", "Un decreto", "Un trattato internazionale"],
+      "correctAnswers": [0, 1, 0, 0]
+    },
+
+    {
+      "questionText": "In che anno entrò in vigore la Costituzione italiana?",
+      "answers": ["1946", "1947", "1948", "1950"],
+      "correctAnswers": [0, 0, 1, 0]
+    },
+    {
+      "questionText": "Cos’era il Piano Marshall?",
+      "answers": ["Un piano militare", "Un piano di aiuti economici", "Un’alleanza politica", "Un’operazione segreta"],
+      "correctAnswers": [0, 1, 0, 0]
+    },
+    {
+      "questionText": "Quali due blocchi si fronteggiavano nella Guerra Fredda?",
+      "answers": ["Europa e Asia", "Nord e Sud", "USA e URSS", "Cina e Giappone"],
+      "correctAnswers": [0, 0, 1, 0]
+    },
+    {
+      "questionText": "Cos’era la NATO?",
+      "answers": ["Un partito politico", "Un’alleanza militare occidentale", "Un’organizzazione economica", "Un tribunale"],
+      "correctAnswers": [0, 1, 0, 0]
+    },
+    {
+      "questionText": "Quale muro simboleggiò la divisione del mondo in due blocchi?",
+      "answers": ["Muro di Vienna", "Muro di Mosca", "Muro di Berlino", "Muro di Varsavia"],
+      "correctAnswers": [0, 0, 1, 0]
+    },
+
+    {
+      "questionText": "In che anno crollò l’URSS?",
+      "answers": ["1987", "1989", "1991", "1993"],
+      "correctAnswers": [0, 0, 1, 0]
+    },
+    {
+      "questionText": "Chi era Gorbaciov?",
+      "answers": ["Un leader fascista", "Un presidente USA", "Un leader sovietico riformatore", "Un generale nazista"],
+      "correctAnswers": [0, 0, 1, 0]
+    },
+    {
+      "questionText": "Cosa furono la perestrojka e la glasnost?",
+      "answers": ["Guerre", "Riforme sovietiche", "Trattati militari", "Partiti politici"],
+      "correctAnswers": [0, 1, 0, 0]
+    },
+    {
+      "questionText": "Quale evento segnò simbolicamente la fine della Guerra Fredda?",
+      "answers": ["Crisi di Cuba", "Caduta del Muro di Berlino", "Guerra del Vietnam", "Nascita ONU"],
+      "correctAnswers": [0, 1, 0, 0]
+    },
+    {
+      "questionText": "Quale crisi portò il mondo vicino alla guerra nucleare nel 1962?",
+      "answers": ["Crisi di Berlino", "Crisi di Cuba", "Guerra di Corea", "Guerra del Golfo"],
+      "correctAnswers": [0, 1, 0, 0]
     }
   ]
 }
+

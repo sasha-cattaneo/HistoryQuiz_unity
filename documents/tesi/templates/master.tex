@@ -1,0 +1,52 @@
+\makeatletter
+\begin{center}
+  \includegraphics[width=8.79cm]{images/unibg-logo-wide.png}
+\end{center}
+
+\begin{center}
+  \large
+  UNIVERSITÀ DEGLI STUDI DI BERGAMO \\
+  \vspace{0.5cm}
+  \normalsize
+  \@trDepartment~\@department \\
+  \@trCourseB~\@course
+
+  \vfill
+
+  \Huge
+  \textbf{\@title}
+
+  \LARGE
+  \@subtitle
+\end{center}
+
+\vfill
+
+\begin{flushleft}
+  \@trAdvisor \\
+  \@advisor
+\end{flushleft}
+
+\ifthenelse{\equal{\@coadvisor}{}}{}{
+\begin{flushleft}
+  \ifthenelse{\equal{\arabic{@coadvisorcount}}{1}}
+    {\@trCoAdvisor \\ \@coadvisor}
+    {\@trCoAdvisors \\ \@coadvisor}
+\end{flushleft}
+}
+
+\begin{flushright}
+  \begin{tabular}{@{}l@{}}
+    \@authors \\
+    \ifthenelse{\equal{\arabic{@studentidcount}}{1}}
+      {\@trStudentNumber~\@studentids}
+      {\@trStudentNumbers: \\ \@studentids}
+  \end{tabular}
+\end{flushright}
+
+\vfill
+
+\begin{center}
+  \@trAnnoAccademico~\@academicyear
+\end{center}
+\makeatother
