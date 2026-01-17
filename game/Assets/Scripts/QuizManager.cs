@@ -95,7 +95,7 @@ public class QuizManager : MonoBehaviour
     }
     private void setRegularQuiz()
     {
-        string filePath = Application.streamingAssetsPath + "/Quiz/" + GameData.selectedQuiz + ".quiz";
+        string filePath = Application.streamingAssetsPath + "/Quiz/" + GameData.selectedQuiz + ".json";
 
         if (File.Exists(filePath))
         {

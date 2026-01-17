@@ -38,7 +38,7 @@ public class HomepageManager : MonoBehaviour
 
         if (Directory.Exists(filePath))
         {
-            string[] files = Directory.GetFiles(filePath, "*.quiz");
+            string[] files = Directory.GetFiles(filePath, "*.json");
             foreach (var file in files)
             {
                 string fileName = Path.GetFileNameWithoutExtension(file);
