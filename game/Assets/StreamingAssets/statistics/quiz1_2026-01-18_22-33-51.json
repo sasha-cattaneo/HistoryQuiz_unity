@@ -1,0 +1,70 @@
+{
+  "score": 10,
+  "passingScore": 10,
+  "date": "2026-01-18_22-33-51",
+  "questions": [
+    {
+      "questionText": "Quale crisi economica colpì duramente il mondo nel 1929?",
+      "selectedAnswer": [
+        "La crisi petrolifera",
+        "Il crollo dell' USSR",
+        "La Grande Depressione"
+      ]
+    },
+    {
+      "questionText": "Chi fu il leader dell’Unione Sovietica durante la Seconda guerra mondiale?",
+      "selectedAnswer": [
+        "Lenin",
+        "Gorbaciov",
+        "Trotskij",
+        "Stalin"
+      ]
+    },
+    {
+      "questionText": "Quale evento segna l’inizio della Prima guerra mondiale?",
+      "selectedAnswer": [
+        "L’assassinio dell’arciduca Francesco Ferdinando"
+      ]
+    },
+    {
+      "questionText": "Quale evento segnò l’inizio della Seconda guerra mondiale?",
+      "selectedAnswer": [
+        "L'invasione della Polonia"
+      ]
+    },
+    {
+      "questionText": "Chi fu il capo del regime fascista in Italia?",
+      "selectedAnswer": [
+        "Vittorio Emanuele III",
+        "Benito Mussolini"
+      ]
+    },
+    {
+      "questionText": "Che cos’era la Guerra Fredda?",
+      "selectedAnswer": [
+        "Un periodo di tensione politica e ideologica tra due blocchi"
+      ]
+    },
+    {
+      "questionText": "In quale anno cadde il Muro di Berlino?",
+      "selectedAnswer": [
+        "1985",
+        "1987",
+        "1989"
+      ]
+    },
+    {
+      "questionText": "Quale trattato pose fine ufficialmente alla Prima guerra mondiale?",
+      "selectedAnswer": [
+        "Trattato di Versailles"
+      ]
+    },
+    {
+      "questionText": "In che anno scoppiò la Rivoluzione russa?",
+      "selectedAnswer": [
+        "1905",
+        "1917"
+      ]
+    }
+  ]
+}

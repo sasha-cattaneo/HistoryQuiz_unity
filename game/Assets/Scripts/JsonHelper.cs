@@ -61,7 +61,6 @@ public static class JsonHelper
     public static bool ValidateJson(string json)
     {
         var jsonObject = JObject.Parse(json);
-        Debug.Log(json);
         IList<string> errors;
         bool validationResult = jsonObject.IsValid(schema, out errors);
         foreach (var error in errors)

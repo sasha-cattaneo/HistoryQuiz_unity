@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/QuizCRUDScene.unity
     guid: 904fab9eda39de638bb7cb683330eb4c
+  - enabled: 1
+    path: Assets/Scenes/QuizHistoryScene.unity
+    guid: ec4215067fbefad07a90c3644cd77e8b
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

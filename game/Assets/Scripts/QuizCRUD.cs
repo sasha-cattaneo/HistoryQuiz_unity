@@ -111,7 +111,7 @@ public class QuizCRUD : MonoBehaviour
         questionCount++;
         // Create a new panel for the question and resize the parent panel
         GameObject panel = Instantiate(questionPanelPrefab, createQuizPanel.transform);
-        panel.GetComponentInChildren<TextMeshProUGUI>().text = "Question " + questionCount;
+        panel.GetComponentInChildren<TextMeshProUGUI>().text = "Domanda " + questionCount;
         createQuizPanel.GetComponent<RectTransform>().sizeDelta = new Vector2(createQuizPanel.GetComponent<RectTransform>().sizeDelta.x, createQuizPanel.GetComponent<RectTransform>().sizeDelta.y + 244f);
     }
     // Create a new question panel with existing data and resize the parent panel
@@ -120,7 +120,7 @@ public class QuizCRUD : MonoBehaviour
         questionCount++;
         // Create a new panel for the question and resize the parent panel
         GameObject panel = Instantiate(questionPanelPrefab, createQuizPanel.transform);
-        panel.GetComponentInChildren<TextMeshProUGUI>().text = "Question " + questionCount;
+        panel.GetComponentInChildren<TextMeshProUGUI>().text = "Domanda " + questionCount;
         createQuizPanel.GetComponent<RectTransform>().sizeDelta = new Vector2(createQuizPanel.GetComponent<RectTransform>().sizeDelta.x, createQuizPanel.GetComponent<RectTransform>().sizeDelta.y + 244f);
 
         // If we are editing an existing quiz, populate the fields with existing data

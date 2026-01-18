@@ -424,7 +424,7 @@ MonoBehaviour:
   quizPanel: {fileID: 507790943}
   quizPanelPrefab: {fileID: 3965554100948160596, guid: 1e31436f7127b915eb361c4e68bb7075, type: 3}
   createQuizPanel: {fileID: 1048483003}
-  questionPanelPrefab: {fileID: 30864967689447393, guid: 47ef3701e1059b4cea315cf9d0e21c2a, type: 3}
+  questionPanelPrefab: {fileID: 3978515774554449795, guid: 58d1fb5aaa116e1529a2d4b8ba0e87f3, type: 3}
   errorMessage: {fileID: 79465009}
   saveButton: {fileID: 1114231402}
   messageDuration: 2

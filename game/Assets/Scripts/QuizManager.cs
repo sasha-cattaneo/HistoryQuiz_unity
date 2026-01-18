@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using Newtonsoft.Json;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 
 public class QuizManager : MonoBehaviour
@@ -19,6 +21,9 @@ public class QuizManager : MonoBehaviour
     private List<QuestionData> allAvailableQuestions;
     private bool quizFinished = false;
     public SceneManage sceneManager;
+    public string logFilePath;
+    public ResultData resultData;
+    public int logQuestionCounter = -1;
 
     void Start()
     {
@@ -91,6 +96,10 @@ public class QuizManager : MonoBehaviour
                 Debug.Log("Selected " + questions.Count + "/" + numberOfQuestions);
             }
         }
+        // Initialize log file
+        logFilePath = Application.streamingAssetsPath + "/statistics/daily_" + DateTime.Today.ToString("yyyy-MM-dd") + ".json";
+
+        initializeLogFile();
 
     }
     private void setRegularQuiz()
@@ -101,6 +110,12 @@ public class QuizManager : MonoBehaviour
         {
             string dataAsJson = File.ReadAllText(filePath);
             questions = JsonHelper.FromJson<QuestionData>(dataAsJson);
+
+            // Initialize log file
+            logFilePath = Application.streamingAssetsPath + "/statistics/" + GameData.selectedQuiz + "_" + DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss") + ".json";
+
+            initializeLogFile();
+
             foreach (var q in questions)
             {
                 Debug.Log(q.ToString());
@@ -130,7 +145,9 @@ public class QuizManager : MonoBehaviour
         for (int i = 0; i < options.Length; i++)
         {
             //options[i].GetComponent<Image>().color = Color.white;
+            options[i].GetComponent<Button>().enabled = true;
             options[i].GetComponentInChildren<TextMeshProUGUI>().text = questions[currentQuestion].answers[i];
+            options[i].GetComponent<AnswerScript>().answerIndex = i;
             if (questions[currentQuestion].correctAnswers[i] == 1)
             {
                 options[i].GetComponent<AnswerScript>().isCorrect = true;
@@ -150,12 +167,19 @@ public class QuizManager : MonoBehaviour
         }
         currentQuestion = UnityEngine.Random.Range(0, questions.Count);
         questionText.text = questions[currentQuestion].questionText;
+        
+        logQuestionCounter++;
+        logQuestion(questions[currentQuestion]);
+        Debug.Log("Logged question: " + logQuestionCounter);
 
         setAnswers();
     }
     private void quizEnd()
     {
         questionText.text = "Quiz finished!";
+
+        saveLogFile();
+
         foreach (var option in options)
         {
             option.SetActive(false);
@@ -184,7 +208,7 @@ public class QuizManager : MonoBehaviour
             }
             PlayerPrefs.SetString("lastDaily", DateTime.Now.ToString("yyyy-MM-dd"));
         }
-        
+
         PlayerPrefs.Save();
 
         // Reset GameData for next quiz 
@@ -205,6 +229,44 @@ public class QuizManager : MonoBehaviour
         {
             sceneManager.LoadScene("HomepageScene");
         }
-        
+
+    }
+    public void initializeLogFile()
+    {
+        resultData = new ResultData();
+        resultData.date = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
+        resultData.questions = new ResultQuestion[questions.Count];
+        for (int i = 0; i < questions.Count; i++)
+        {
+            resultData.questions[i] = new ResultQuestion();
+        }
+        Debug.Log(resultData.questions.Length + " log question slots initialized.");
+    }
+    public void logQuestion(QuestionData question)
+    {
+        if (resultData != null)
+        {
+            resultData.questions[logQuestionCounter].questionText = question.questionText;
+        }
+    }
+    public void logAnswer(int index)
+    {
+        if (resultData != null)
+        {
+            resultData.questions[logQuestionCounter].selectedAnswer.Add(questions[currentQuestion].answers[index]);
+        }
+        Debug.Log("Logged answer for question " + logQuestionCounter + "(Question: " + questions[currentQuestion].questionText + ")" + ": Answer index " + index + "(Answer: " + questions[currentQuestion].answers[index] + ")");
+    }
+
+    public void saveLogFile()
+    {
+        if (resultData != null)
+        {
+            resultData.score = score;
+            resultData.passingScore = passingScore;
+            string json = JsonConvert.SerializeObject(resultData, Formatting.Indented);
+            File.WriteAllText(logFilePath, json);
+            Debug.Log("Log file saved to: " + logFilePath);
+        }
     }
 }

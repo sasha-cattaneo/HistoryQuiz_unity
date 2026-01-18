@@ -1,12 +1,14 @@
 using System.Collections;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class AnswerScript : MonoBehaviour
 {
     public bool isCorrect = false;
     public QuizManager quizManager;
     private static int value = 2;
+    public int answerIndex;
 
     [Header("Effects")]
     public float delayBeforeNextQuestion = 2f;
@@ -14,6 +16,9 @@ public class AnswerScript : MonoBehaviour
     
     public void answer()
     {
+        quizManager.logAnswer(answerIndex);
+        Debug.Log("Answer selected: " + answerIndex );
+
         if (isCorrect)
         {
             Color c;
@@ -64,7 +69,23 @@ public class AnswerScript : MonoBehaviour
     }
     IEnumerator waiter(float seconds)
     {
+        SetButtonsInteractable(false);
         yield return new WaitForSeconds(seconds);
         quizManager.correct(value);
+    }
+    // Helper method to toggle all answer buttons
+    private void SetButtonsInteractable(bool state)
+    {
+
+        // Option B: Disable controls on the QuizManager to prevent clicking ANY answer 
+        // (Recommended for quiz games so user doesn't click a different answer while one is shaking)
+        if (quizManager != null && quizManager.options != null)
+        {
+            foreach (GameObject option in quizManager.options)
+            {
+                Button btn = option.GetComponent<Button>();
+                if (btn != null) btn.enabled = state;
+            }
+        }
     }
 }
