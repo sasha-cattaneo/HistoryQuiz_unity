@@ -108,18 +108,37 @@ public class QuizHistoryManager : MonoBehaviour
     
     public void detailsButtonClick(string fileName)
     {
+        string name = fileName.Split('_')[0];
+        string temp_date = fileName.Split('_')[1];
+        string year = temp_date.Split('-')[0];
+        string month = temp_date.Split('-')[1];
+        string day = temp_date.Split('-')[2];
+
+        string date = day + "/" + month + "/" + year + " " + fileName.Split('_')[2].Replace("-", ":");
+
         resetQuizDetailsPanel();
         Debug.Log("Showing details of: " + fileName);
         quizDetailsPanel.SetActive(true);
-        Transform quizNameTransform = quizDetailsPanel.transform.Find("QuizInput");
+        Transform quizNameTransform = quizDetailsPanel.transform.Find("QuizNameInput");
         // Set the quiz name in the input field and make it non-interactable
         if (quizNameTransform != null)
         {
             TMP_InputField quizNameInput = quizNameTransform.GetComponent<TMP_InputField>();
             if (quizNameInput != null)
             {
-                quizNameInput.text = fileName;
+                quizNameInput.text = name;
                 quizNameInput.interactable = false;
+            }
+        }
+        Transform quizDateTransform = quizDetailsPanel.transform.Find("QuizDateInput");
+        // Set the quiz name in the input field and make it non-interactable
+        if (quizDateTransform != null)
+        {
+            TMP_InputField quizDateInput = quizDateTransform.GetComponent<TMP_InputField>();
+            if (quizDateInput != null)
+            {
+                quizDateInput.text = date;
+                quizDateInput.interactable = false;
             }
         }
         
@@ -130,9 +149,12 @@ public class QuizHistoryManager : MonoBehaviour
     public void resetQuizDetailsPanel()
     {
         // Clear the input field and reset the createQuizPanel
-        TMP_InputField quizNameInput = quizDetailsPanel.transform.Find("QuizInput").GetComponent<TMP_InputField>();
+        TMP_InputField quizNameInput = quizDetailsPanel.transform.Find("QuizNameInput").GetComponent<TMP_InputField>();
         quizNameInput.text = "";
         quizNameInput.interactable = false;
+        TMP_InputField quizDateInput = quizDetailsPanel.transform.Find("QuizDateInput").GetComponent<TMP_InputField>();
+        quizDateInput.text = "";
+        quizDateInput.interactable = false;
         foreach (Transform child in quizDetailsContainerPanel.transform)
         {
             Destroy(child.gameObject);

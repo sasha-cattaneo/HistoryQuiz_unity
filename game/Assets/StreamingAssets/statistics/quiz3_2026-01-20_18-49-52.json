@@ -1,0 +1,48 @@
+{
+  "score": 8,
+  "passingScore": 7,
+  "date": "2026-01-20_18-49-52",
+  "questions": [
+    {
+      "questionText": "Quali città giapponesi furono colpite dalla bomba atomica?Tokyo e Kyoto",
+      "selectedAnswer": [
+        "Tokyo e Kyoto",
+        "Hiroshima e Nagasaki"
+      ]
+    },
+    {
+      "questionText": "In che anno entrò in vigore la Costituzione italiana?",
+      "selectedAnswer": [
+        "1946",
+        "1950",
+        "1947",
+        "1948"
+      ]
+    },
+    {
+      "questionText": "Chi era il presidente USA durante la fine della Seconda guerra mondiale?",
+      "selectedAnswer": [
+        "Roosevelt"
+      ]
+    },
+    {
+      "questionText": "In che anno l’Italia divenne una repubblica?",
+      "selectedAnswer": [
+        "1946"
+      ]
+    },
+    {
+      "questionText": "In che anno finì la Seconda guerra mondiale in Europa?",
+      "selectedAnswer": [
+        "1944",
+        "1945"
+      ]
+    },
+    {
+      "questionText": "Dove avvenne lo sbarco in Normandia?",
+      "selectedAnswer": [
+        "Francia"
+      ]
+    }
+  ]
+}

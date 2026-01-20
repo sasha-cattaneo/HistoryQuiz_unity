@@ -1,0 +1,59 @@
+{
+  "score": 0,
+  "passingScore": 7,
+  "date": "2026-01-20_18-50-40",
+  "questions": [
+    {
+      "questionText": "In che anno entrò in vigore la Costituzione italiana?",
+      "selectedAnswer": [
+        "1946",
+        "1947",
+        "1948"
+      ]
+    },
+    {
+      "questionText": "Chi era il presidente USA durante la fine della Seconda guerra mondiale?",
+      "selectedAnswer": [
+        "Truman",
+        "Eisenhower",
+        "Kennedy",
+        "Roosevelt"
+      ]
+    },
+    {
+      "questionText": "In che anno l’Italia divenne una repubblica?",
+      "selectedAnswer": [
+        "1945",
+        "1949",
+        "1948",
+        "1946"
+      ]
+    },
+    {
+      "questionText": "Dove avvenne lo sbarco in Normandia?",
+      "selectedAnswer": [
+        "Italia",
+        "Belgio",
+        "Gran Bretagna",
+        "Francia"
+      ]
+    },
+    {
+      "questionText": "In che anno finì la Seconda guerra mondiale in Europa?",
+      "selectedAnswer": [
+        "1947",
+        "1944",
+        "1945"
+      ]
+    },
+    {
+      "questionText": "Quali città giapponesi furono colpite dalla bomba atomica?Tokyo e Kyoto",
+      "selectedAnswer": [
+        "Tokyo e Kyoto",
+        "Osaka e Kobe",
+        "Yokohama e Nagoya",
+        "Hiroshima e Nagasaki"
+      ]
+    }
+  ]
+}
