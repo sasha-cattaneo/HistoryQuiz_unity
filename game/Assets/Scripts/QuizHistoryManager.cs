@@ -40,20 +40,25 @@ public class QuizHistoryManager : MonoBehaviour
     {
         if (Directory.Exists(folderPath))
         {
-            //for each json file in the directory, create a new panel in the quizPanel
-            string[] files = Directory.GetFiles(folderPath, "*.json");
-            foreach (var file in files)
+            // Get files and sort them by Creation Time (Newest first)
+            var directoryInfo = new DirectoryInfo(folderPath);
+            var files = directoryInfo.GetFiles("*.json")
+                                     .OrderByDescending(f => f.CreationTime) // Use OrderBy(f => f.CreationTime) for oldest first
+                                     .ToArray();
+                                     
+            // For each json file in the directory, create a new panel in the quizPanel
+            foreach (var fileInfo in files)
             {
-                if (validateQuiz(file))
+                if (validateQuiz(fileInfo.FullName))
                 {
-                    string fileName = Path.GetFileNameWithoutExtension(file);
+                    string fileName = Path.GetFileNameWithoutExtension(fileInfo.FullName);
                     //Debug.Log("Found quiz file: " + fileName);
 
                     addQuizPanel(fileName);
                 }
                 else
                 {
-                    Debug.LogError("Invalid quiz file: " + file);
+                    Debug.LogError("Invalid quiz file: " + fileInfo.FullName);
                 }
             }
         }
