@@ -1,18 +1,23 @@
 \chapter{Gioco sviluppato}
 Il \textit{serious game} \textcolor{red}{NOME} consiste in un programma \textit{cross-platform}, sia per computer sia per dispositivi mobili, per la gestione e l’esecuzione di quiz.
 
-Il progetto è stato pensato per un utilizzo scolastico. L’insegnante ha accesso alla finestra di gestione dei quiz, dalla quale ha l’abilità di creare e modificare i quiz per adattarli alla parte del programma che sta coprendo in quel periodo. Successivamente può esportare i quiz creati per darli ai propri studenti. I quali, molto semplicemente, possono importarli e giocarli.
+Il progetto è stato pensato per un utilizzo scolastico, focalizzato sulla storia e la grafica è stata scelta per avvicinarsi a questo tema.
+
+L’insegnante ha accesso alla finestra di gestione dei quiz, dalla quale ha l’abilità di creare e modificare i quiz per adattarli alla parte del programma che sta coprendo in quel periodo. Successivamente può esportare i quiz creati per darli ai propri studenti. I quali, molto semplicemente, possono importarli e giocarli.
+
+Ogni operazione viene eseguita tramite un’interfaccia grafica semplice ed intuitiva, in modo da permettere a chiunque di utilizzare il gioco senza difficoltà.
 
 \begin{figure}[H]
     \centering
-    %\includegraphics[width=16cm]{images/startPageScreenshot.png}
+    % TEMPORANEO
+    \includegraphics[width=10cm]{images/quizCRUD.png}
     \caption{Pagina iniziale del gioco.}
 \end{figure}
 
 \section{Modalità di gioco implementate}
 Sono state implementate due modalità di gioco:
 \begin{itemize}
-    \item La modalità classica: nella quale l’utente, solitamente lo studente, può importare e giocare a dei quiz creati da un altro utente.
+    \item La modalità classica: nella quale l’utente, solitamente lo studente, può importare e giocare a dei quiz creati da un altro utente, solitamente il suo insegnante.
             
         Un quiz viene considerato completato con successo se l’utente riesce a raggiungere almeno il 60\% del punteggio massimo ottenibile.
     \item La modalità \textit{Daily}: nella quale l’utente può giocare ad un quiz giornaliero, creato automaticamente in modo da avere un quiz diverso ogni giorno.
@@ -22,24 +27,76 @@ Sono state implementate due modalità di gioco:
         La streak viene resettata nel momento in cui il quiz giornaliero viene fallito o al primo giorno in cui non viene completato.
 \end{itemize}
 
-\section{Meccaniche pedagogiche implementate}
+Entrambe le modalità di gioco si basano sullo stesso sistema di quiz, che consiste in una serie di domande a risposta multipla.
+
+Ogni domanda ha quattro risposte possibili, di cui una o più corrette.
+
+Il numero di domande di un quiz è variabile a discrezione dell'utente che lo crea.
+
+\begin{figure}[H]
+    \centering
+    % TEMPORANEO
+    \includegraphics[width=10cm]{images/quizCRUD.png}
+    \caption{Pagina di una domanda durante l'esecuzione un quiz.}
+\end{figure}
 
 \section{CRUD e Import/Export dei quiz}
 Per la gestione dei quiz è stata implementata una finestra di CRUD (Create, Read, Update, Delete) che permette all’utente di gestire i quiz presenti nel proprio dispositivo.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=13cm]{images/quizManageScreenshot.png}
+    \includegraphics[width=10cm]{images/quizCRUD.png}
     \caption{Pagina per la gestione dei quiz.}
 \end{figure}
 Tramite questa pagina gli insegnanti possono creare o modificare i quiz per renderli adatti ai propri studenti ed al programma che stanno insegnando in quel momento.
 
-Inoltre sono state aggiunte funzionalità di import/export dei quiz, in modo da facilitare la condivisione dei quiz tra insegnanti e studenti.
+Nella creazione di un quiz si può scegliere liberamente il nome, il numero e il contenuto delle domande. Ogni domanda ha quattro risposte e può avere una o più risposte corrette.
 
-Nella creazione di un quiz si sceglie liberamente il nome, il numero e il contenuto delle domande. Ogni domanda ha quattro risposte e può avere una o più risposte corrette.
+La modifica di un quiz permette di modificare il numero e contenuto delle domande e le loro risposte.
+
+Successivamente possono condividere i quiz creati, o modificati, con i propri studenti tramite le funzionalità di \textit{import/export} dei quiz.
+Durante l'esportazione di un quiz, viene scelta dall'utente la cartella di destinazione.
+A quel punto utilizzando strumenti intermedi di condivisione, come Microsoft Teams o Google Classroom, l'insegnante può condividere il file esportato con i propri studenti.
+Gli studenti, una volta ricevuto il file, possono importarlo nel gioco tramite la funzionalità di importazione dei quiz.
+
+Questo sistema permette di avere una gestione semplice e veloce dei quiz, senza la necessità di utilizzare sistemi complessi di gestione degli utenti o di autenticazione.
+
+Inoltre lascia la libertà di scegliere il metodo di condivisione. Questo è un fattore molto importante in ambito scolastico, perché ogni scuola fa uso di piattaforme diverse per la condivisione dei materiali didattici e se questo gioco forzasse l'uso di una piattaforma specifica, potrebbe limitare le scuole in cui può essere utilizzato.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=13cm]{images/quizCreateScreenshot.png}
+    \includegraphics[width=10cm]{images/quizCRUDCreate.png}
     \caption{Schermata di creazione di un quiz.}
 \end{figure}
+
+\section{Cronologia di gioco}
+Ogni quiz giocato viene salvato in un file di cronologia, che tiene traccia delle partite giocate dall’utente.
+Oltre al nome del quiz giocato, vengono salvati anche la data e l’ora in cui è stato giocato, il punteggio ottenuto e ogni risposta scelta, sia se corretta sia se sbagliata.
+
+Per permettere agli utenti di tenere traccia dei propri progressi, è stata  implementata una schermata in cui è possibile visualizzare questi dati in modo leggibile.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=10cm]{images/quizHistory.png}
+    \caption{Schermata della cronologia di gioco.}
+\end{figure}
+
+Questa schermata permette di visualizzare tutte le partite giocate, ordinate in ordine cronologico, insieme al risultato ottenuto.
+
+Cliccando sulla lente d'ingrandimento di una specifica partita, viene mostrato un riepilogo dettagliato della partita, con tutte le domande e le risposte date dall'utente, evidenziando quelle corrette e quelle sbagliate.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=10cm]{images/quizHistoryDetails.png}
+    \caption{Schermata che mostra i dettagli di un quiz giocato.}
+\end{figure}
+
+
+\section{Gestione dei dati}
+Per la gestione dei file dei quiz è stato scelto di utilizzare il formato JSON, sia per i file dei quiz sia per i file della cronologia.
+
+Questo formato è stato scelto in quanto è un formato leggibile sia da umani sia da computer, permettendo così ai professori che conoscono il formato di poter modificare i quiz anche senza utilizzare il gioco, mentre per gli altri docenti è stata creata una pagina specifica nel gioco.
+
+Altri vantaggi di questo formato sono la leggerezza, che facilità le operazioni di condivisione dei quiz tra i docenti e i loro studenti, e la possibilità di usare degli strumenti già sviluppati per verificare l'integrità del file e per garantire che si tratti di un quiz valido.
+
+\section{Meccaniche pedagogiche implementate}

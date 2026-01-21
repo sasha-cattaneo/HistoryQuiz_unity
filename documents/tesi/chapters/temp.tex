@@ -1,0 +1,52 @@
+\chapter{Stato dell'arte e analisi del dominio}
+
+% DA VEDERE
+\section{Struttura della tesi}
+Il presente elaborato è organizzato come segue: il Capitolo 2 analizzerà lo stato dell'arte dei \textit{serious games} e le teorie pedagogiche alla base dell'apprendimento ludico. Il Capitolo 3 descriverà l'analisi dei requisiti e la progettazione del sistema. Nel Capitolo 4 verrà illustrata l'implementazione tecnica di \textcolor{red}{NOME}, mentre il Capitolo 5 riporterà i risultati dei test e le conclusioni finali.
+
+\section{Analisi dei requisiti}
+Una fase determinante nel ciclo di vita del software è rappresentata dall'analisi dei requisiti, il cui obiettivo è definire con precisione le funzionalità e i vincoli a cui il sistema deve sottostare. Per lo sviluppo di \textcolor{red}{NOME}, l'individuazione dei requisiti è stata condotta seguendo un approccio strutturato, documentando ogni specifica all'interno del \textit{Software Requirements and Design Document}. Tale pratica ha permesso di mantenere una visione coerente del progetto, garantendo la scalabilità dell'architettura e facilitando un'eventuale futura transizione verso un ambiente di sviluppo collaborativo.
+
+Nelle sezioni seguenti verranno definiti gli attori coinvolti, i requisiti funzionali (cosa il sistema fa) e i requisiti non funzionali (come il sistema lo fa), concludendo con la formalizzazione dei casi d'uso.
+
+\subsection{Attori del sistema}
+L'analisi degli attori permette di identificare le entità, umane o esterne, che interagiscono con il sistema. Per \textcolor{red}{NOME} sono stati individuati due profili utente principali, caratterizzati da necessità e competenze differenti:
+
+\begin{itemize}
+    \item \textbf{Insegnante:} Rappresenta l'utente amministratore dei contenuti. La sua necessità principale è disporre di un'interfaccia di \textit{authoring} semplificata che permetta la gestione dei quiz (creazione, modifica, archiviazione) senza richiedere competenze di programmazione. Un requisito chiave per questo attore è la persistenza dei dati su supporti rimovibili, per agevolare l'uso dei quiz in contesti scolastici offline.
+    \item \textbf{Studente:} Rappresenta l'utilizzatore finale del Serious Game. Il suo obiettivo è l'apprendimento attraverso l'interazione ludica. Richiede un sistema di feedback immediato e meccaniche di \textit{engagement} (come la sfida giornaliera o il tracking dei progressi) che incentivino la continuità del percorso didattico.
+\end{itemize}
+
+\subsection{Requisiti funzionali}
+I requisiti funzionali definiscono i servizi che il sistema deve offrire in risposta agli input degli utenti. Per chiarezza metodologica, sono stati raggruppati in categorie logiche.
+
+\paragraph{Modalità di interazione e gioco}
+\begin{itemize}
+    \item \textbf{Selezione Contenuti:} Il sistema deve permettere la navigazione in un catalogo di quiz e l'avvio di una sessione di gioco specifica.
+    \item \textbf{Algoritmo Daily Challenge:} Il sistema deve gestire la generazione o la selezione automatica di un quiz giornaliero, garantendo il rinnovo dei contenuti su base temporale.
+    \item \textbf{Persistence dei progressi:} Deve essere implementato un sistema di tracciamento per le sfide completate (streak), visualizzabile dall'utente.
+    \item \textbf{Gestione del Feedback:} Il sistema deve discriminare tra risposte corrette ed errate, fornendo stimoli visivi o testuali differenziati. In particolare, il feedback negativo deve essere progettato secondo principi di \textit{game design} per non scoraggiare l'utente (es. fornendo la spiegazione storica corretta).
+\end{itemize}
+
+\paragraph{Sistema di Authoring (Gestione Quiz)}
+\begin{itemize}
+    \item \textbf{Operazioni CRUD:} Il sistema deve consentire le operazioni di \textit{Create, Read, Update, Delete} sia sui quiz che sulle singole domande ad essi associate.
+    \item \textbf{I/O su File System:} L'applicativo deve esporre funzionalità di importazione ed esportazione dei quiz, permettendo lo scambio di contenuti tramite file esterni.
+\end{itemize}
+
+\subsection{Requisiti non funzionali}
+I requisiti non funzionali definiscono i criteri di qualità e i vincoli tecnici del sistema.
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|l|p{10cm}|}
+\hline
+\textbf{Categoria} & \textbf{Descrizione del Requisito} \\ \hline
+\textbf{Usabilità} & L'interfaccia deve seguire i principi della \textit{User Experience} (UX); un utente inesperto deve poter avviare una partita in meno di 5 minuti. \\ \hline
+\textbf{Performance} & Il sistema deve garantire un tempo di risposta (\textit{input lag}) inferiore a 1 secondo per ogni interazione dell'utente. \\ \hline
+\textbf{Interoperabilità} & I dati devono essere serializzati in formato \textbf{JSON}, garantendo la leggibilità e la modificabilità tramite editor esterni. \\ \hline
+\textbf{Portabilità} & Grazie all'uso di Unity, il software deve essere compilabile e funzionante su architetture Windows, macOS e Linux. \\ \hline
+\textbf{Affidabilità} & Il sistema deve gestire correttamente le eccezioni durante l'importazione di file JSON malformati, evitando il crash dell'applicazione. \\ \hline
+\end{tabular}
+\caption{Sintesi dei requisiti non funzionali.}
+\end{table}
