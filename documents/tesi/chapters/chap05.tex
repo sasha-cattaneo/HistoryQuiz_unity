@@ -24,13 +24,11 @@ Sono state implementate due modalità di gioco:
 
         Se l’utente riesce a completare con successo il quiz, cioè con almeno 80\% del punteggio massimo, aumenterà di uno un contatore dei giorni consecutivi in cui il quiz giornaliero è stato completato con successo. Questo contatore viene chiamato \textit{streak}.
 
-        La streak viene resettata nel momento in cui il quiz giornaliero viene fallito o al primo giorno in cui non viene completato.
+        La \textit{streak} viene resettata nel momento in cui il quiz giornaliero viene fallito o al primo giorno in cui non viene completato.
 \end{itemize}
 
 Entrambe le modalità di gioco si basano sullo stesso sistema di quiz, che consiste in una serie di domande a risposta multipla.
-
 Ogni domanda ha quattro risposte possibili, di cui una o più corrette.
-
 Il numero di domande di un quiz è variabile a discrezione dell'utente che lo crea.
 
 \begin{figure}[H]
@@ -100,3 +98,21 @@ Questo formato è stato scelto in quanto è un formato leggibile sia da umani si
 Altri vantaggi di questo formato sono la leggerezza, che facilità le operazioni di condivisione dei quiz tra i docenti e i loro studenti, e la possibilità di usare degli strumenti già sviluppati per verificare l'integrità del file e per garantire che si tratti di un quiz valido.
 
 \section{Meccaniche pedagogiche implementate}
+Per rendere il gioco coinvolgente e divertente, sono state usate varie strategie di \textit{game design}.
+
+In primo piano c'è il \textit{feedback} immediato dopo ogni risposta dell'utente. In questo modo lo studente capisce subito il risultato della sua scelta e può imparare dagli errori commessi.
+Il feedback positivo è rappresentato da un cambio del colore del testo della risposta data in verde, mentre il feedback negativo è rappresentato da un cambio del colore del testo della risposta data in rosso e da una breve vibrazione dello stesso testo.
+
+Anche se lo studente sbaglia una risposta, non gli viene rivelata la risposta corretta. Questo per evitare di scoraggiare l'utente e per spingerlo a cercare comunque la risposta corretta.
+
+In base al numero di errori viene però ridotto il punteggio ottenuto. Il punteggio massimo per ogni domanda è 2 punti, se l'utente sbaglia una risposta il punteggio viene ridotto a 1 punto, se sbaglia due risposte il punteggio viene ridotto a 0 punti.
+Il motivo del punteggio è per incentivare l'utente a rispondere con precisione, ma senza penalizzare troppo gli errori.
+Inoltre può motivare lo studente a ripetere il quiz per migliorare il proprio punteggio e la ripetizione è un aspetto fondamentale nell'imparare nuove imformazioni.
+
+L'ultimo aspetto pedagogico del gioco sviluppato è la \textit{Daily Challenge}. Questa modalità riprende l'idea dei giochi puzzle online, come ad esempio \textit{Wordle}[20], che propongono un puzzle diverso ogni giorno ed invitano l'utente a tornare ogni giorno grazie al mantenimento della \textit{streak}.
+Questa strategia funziona perché si tratta di giochi brevi, che impegano pochi minuti al giorno, e, grazie a questo, riescono a creare una routine di apprendimento quotidiana.
+
+Nel gioco sviluppato, la \textit{Daily Challenge} propone un quiz diverso ogni giorno e mantiene una \textit{streak} che indica il numero di giorni consecutivi in cui l'utente ha completato con successo il quiz giornaliero.
+Questo incentiva gli studenti a giocare la sfida giornaliera, portando l'apprendimento al di fuori dalla classe.
+
+Inoltre il quiz giornaliero è accessibile solo per un tentativo al giorno, aumentandone la sfida, ed è creato automaticamente, usando la data del giorno come seme per un generatore di numeri casuali. In questo modo ogni utente riceve lo stesso quiz giornaliero, permettendo così agli studenti di confrontarsi e competere tra di loro.

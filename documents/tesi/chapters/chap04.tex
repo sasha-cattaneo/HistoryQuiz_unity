@@ -44,52 +44,57 @@ Riprendendo il capitolo 3, il gioco è stato sviluppato utilizzando il \textit{g
 
 \newpage
 \section{Analisi dei requisiti}
-Un passo fondamentale delle prime fasi è stato individuare i requisiti funzionali e non funzionali del progetto \textcolor{red}{NOME}.
+Un passo fondamentale delle prime fasi è stata l'analisi dei requisiti, il cui obiettivo è individuare le funzionalità e i vincoli del progetto.
 
-Durante lo sviluppo del progetto questi requisiti, divisi tra funzionali e non funzionali, sono stati raccolti nel documento \textit{Software Requirements and Design} 
-per mantenere un approccio ordinato e scalabile, da un progetto sviluppato singolarmente ad uno progettato con un team.
+Per lo sviluppo di \textcolor{red}{NOME} questi requisiti, divisi tra funzionali e non funzionali, sono stati raccolti nel documento \textit{Software Requirements and Design}.
+Questo ha permesso di mantenere un approccio ordinato e scalabile da un progetto sviluppato singolarmente ad uno progettato con un team.
 
-In questo capitolo verranno identificati gli attori del sistema, definiti i requisiti funzionali e non funzionali, e descritti i casi d'uso principali.
 
 \subsection{Attori del sistema}
-Per comprendere meglio le esigenze degli utenti, sono state identificate due tipologie principali di attori:
+Per comprendere meglio le esigenze degli utenti, sono state identificate due tipologie principali di attori con necessità diverse:
 \begin{enumerate}
-    \item \textbf{Insegnante}: Vuole un'interfaccia chiara, la possibilità di modificare domande esistenti senza dover riscrivere tutto, e la capacità di salvare i quiz su chiavetta USB per portarli in aula. Non ha competenze di programmazione.
-    \item \textbf{Studente}: Vuole un feedback immediato sulle risposte (giusto/sbagliato), conoscere il punteggio finale e avere una sfida stimolante (es. la sfida giornaliera).
+    \item \textbf{Insegnante}: Vuole un'interfaccia chiara, che permetta di gestire i quiz (creazione, modifica, eliminazione, \textit{export} e \textit{import}) senza avere competenze di programmazione. Vuole un sistema per condividere i quiz molto semplice da usare.
+    \item \textbf{Studente}: Vuole un feedback immediato sulle risposte (giusto/sbagliato), conoscere il punteggio finale, avere una sfida stimolante (es. la sfida giornaliera) ed avere una meccanica di controllo dei propri progressi.
 \end{enumerate}
 
+\newpage
+
 \subsection{Requisiti funzionali}
-I requisiti funzionali descrivono ciò che il sistema deve fare. Sono stati divisi in base alle aree di funzionalità.
+I requisiti funzionali descrivono i servizi che il sistema deve fornire agli utenti. Sono stati divisi in base alle aree di funzionalità.
 
 \subsubsection{Modalità di gioco}
 \begin{itemize}
-    \item L'utente deve poter selezione e giocare a un quiz a sua scelta;
-    \item Ogni giorno deve esserci un nuovo quiz giornaliero, generato automaticamente dal sistema;
-    \item Deve essere salvata e mostrata la serie di quiz giornalieri completati con successo;
-    \item Il gioco deve mostrare un feedback positivo in caso di risposta corretta;
-    \item Il gioco deve mostrare un feedback negativo in caso di risposta sbagliata, facendo in modo che l’utente non venga disincentivato dal continuare il quiz.
+    \item \textbf{Selezione Contenuti:} Il sistema deve permettere la navigazione in un catalogo di quiz e l'avvio di una sessione di gioco con il quiz scelto;
+    \item \textbf{Daily Challenge:} Il sistema deve gestire la generazione di un quiz giornaliero, limitando l'accesso al quiz giornaliero ad un tentativo;
+    \item \textbf{Streak:} Deve essere tracciata e mostrata la serie di quiz giornalieri completati con successo;
+    \item \textbf{Gestione del Feedback:} Il gioco deve mostrare un feedback chiaro, che distingua tra una risposta corretta ed una sbagliata.
+        In partivolare, il feedback negativo non deve essere demotivante per l’utente. 
 \end{itemize}
 
 \subsubsection{Gestione dei quiz}
 \begin{itemize}
-    \item L'utente deve poter creare un nuovo quiz;
-    \item L'utente deve poter modificare un quiz esistente;
-    \item L'utente deve poter eliminare un quiz esistente;
-    \item L'utente deve poter aggiungere domande a un quiz esistente;
-    \item L'utente deve poter modificare le domande di un quiz esistente;
-    \item L'utente deve poter rimuovere domande da un quiz esistente;
-    \item L'utente deve poter visualizzare la lista dei quiz esistenti;
-    \item L'utente deve poter importare e esportare un quiz da un file esterno;
+    \item \textbf{Operazioni CRUD:} Il sistema deve gestire le operazioni di \textit{create}, \textit{read}, \textit{update} e \textit{delete} dei quiz;
+    \item \textbf{Import/Export:} Il sistema deve permettere l’importazione e l’esportazione dei quiz in modo semplice.
 \end{itemize}
 
+\newpage
+
 \subsection{Requisiti non funzionali}
-I requisiti non funzionali individuati sono stati:
-\begin{itemize}
-    \item Usabilità: L'interfaccia utente deve essere intuitiva. Il tempo di apprendimento per un nuovo utente deve essere inferiore ai 5 minuti.
-    \item \textit{Performance}: Il gioco deve essere responsivo, dall’azione dell’utente alla risposta deve passare meno di 1 secondi (nessun lag percettibile);
-    \item Portabilità dei dati: I file dei quiz devono essere in formato JSON, per essere leggibili e modificabili esternamente;
-    \item Portabilità del gioco: Il gioco deve essere compatibili su diverse piattaforme;
-\end{itemize}
+I requisiti non funzionali descrivono i criteri di qualità del progetto.
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|l|p{10cm}|}
+    \hline
+    \textbf{Categoria}                                                                  & \textbf{Descrizione del Requisito} \\ \hline
+    \textbf{Usabilità}                                                                  & L'interfaccia utente deve essere intuitiva. Il tempo di apprendimento per un nuovo utente deve essere inferiore ai 5 minuti. \\ \hline
+    \textbf{Performance}                                                                & Il gioco deve essere responsivo, dall’azione dell’utente alla risposta deve passare meno di 1 secondo. \\ \hline
+    \begin{tabular}[c]{@{}l@{}}\textbf{Portabilità}\\ \textbf{dei dati} \end{tabular}   & I dati devono essere serializzati in formato \textbf{JSON}, per essere leggibili e modificabili esternamente. \\ \hline
+    \begin{tabular}[c]{@{}l@{}}\textbf{Portabilità}\\ \textbf{del gioco} \end{tabular}  & Il gioco deve essere compatibili su diverse piattaforme, tra cui Windows, macOS e Linux. \\ \hline
+    \textbf{Affidabilità}                                                               & Il sistema deve gestire correttamente le eccezioni durante l'importazione di file JSON malformati, evitando il crash dell'applicazione. \\ \hline
+\end{tabular}
+\caption{Requisiti non funzionali del sistema.}
+\end{table}
 
 \newpage
 \section{Casi d'uso principali}
