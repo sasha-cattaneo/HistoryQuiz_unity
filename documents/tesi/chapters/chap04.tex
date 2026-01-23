@@ -83,17 +83,17 @@ I requisiti funzionali descrivono i servizi che il sistema deve fornire agli ute
 I requisiti non funzionali descrivono i criteri di qualità del progetto.
 
 \begin{table}[h!]
-\centering
-\begin{tabular}{|l|p{10cm}|}
+    \centering
+    \begin{tabular}{ll}
     \hline
-    \textbf{Categoria}                                                                  & \textbf{Descrizione del Requisito} \\ \hline
-    \textbf{Usabilità}                                                                  & L'interfaccia utente deve essere intuitiva. Il tempo di apprendimento per un nuovo utente deve essere inferiore ai 5 minuti. \\ \hline
-    \textbf{Performance}                                                                & Il gioco deve essere responsivo, dall’azione dell’utente alla risposta deve passare meno di 1 secondo. \\ \hline
-    \begin{tabular}[c]{@{}l@{}}\textbf{Portabilità}\\ \textbf{dei dati} \end{tabular}   & I dati devono essere serializzati in formato \textbf{JSON}, per essere leggibili e modificabili esternamente. \\ \hline
-    \begin{tabular}[c]{@{}l@{}}\textbf{Portabilità}\\ \textbf{del gioco} \end{tabular}  & Il gioco deve essere compatibili su diverse piattaforme, tra cui Windows, macOS e Linux. \\ \hline
-    \textbf{Affidabilità}                                                               & Il sistema deve gestire correttamente le eccezioni durante l'importazione di file JSON malformati, evitando il crash dell'applicazione. \\ \hline
-\end{tabular}
-\caption{Requisiti non funzionali del sistema.}
+    \textbf{Categoria}                                                       & \textbf{Descrizione del Requisito}                                                                                                                                                  \\ \hline
+    \textbf{Usabilità}                                                       & \begin{tabular}[c]{@{}l@{}}L'interfaccia utente deve essere intuitiva. Il tempo di\\ apprendimento per un nuovo utente deve essere inferiore\\ ai 5 minuti.\end{tabular}            \\ \hline
+    \textbf{Performance}                                                     & \begin{tabular}[c]{@{}l@{}}Il gioco deve essere responsivo, dall’azione dell’utente\\ alla risposta deve passare meno di 1 secondo.\end{tabular}                                    \\ \hline
+    \textbf{\begin{tabular}[c]{@{}l@{}}Portabilità\\ dei dati\end{tabular}}  & \begin{tabular}[c]{@{}l@{}}I dati devono essere serializzati in formato \textbf{JSON}, per\\ essere leggibili e modificabili esternamente.\end{tabular}                             \\ \hline
+    \textbf{\begin{tabular}[c]{@{}l@{}}Portabilità\\ del gioco\end{tabular}} & \begin{tabular}[c]{@{}l@{}}Il gioco deve essere compatibili su diverse piattaforme,\\ tra cui Windows, macOS e Linux.\end{tabular}                                                  \\ \hline
+    \textbf{Affidabilità}                                                    & \begin{tabular}[c]{@{}l@{}}Il sistema deve gestire correttamente le eccezioni durante\\ l'importazione di file JSON malformati, evitando il crash\\ dell'applicazione.\end{tabular} \\ \hline
+    \end{tabular}
+    \caption{Requisiti non funzionali del sistema.}
 \end{table}
 
 \newpage
@@ -120,15 +120,12 @@ Questo è consistito nell’identificare e valutare i possibili rischi e, in bas
 
 \begin{table}[H]
     \begin{tabular}{@{}llccl@{}}
-    \toprule
-    \textbf{Nome}                                                                 & \textbf{Descrizione}                                                                                        & \textbf{Probabilità} & \textbf{Pericolosità} & \textbf{Prevenzione}                                                                                      \\ \midrule
-    \textit{Scope creep}                                                          & \begin{tabular}[c]{@{}l@{}}Provare ad\\ implementare\\ troppi requisiti\end{tabular}                        & Media                & Alta                  & \begin{tabular}[c]{@{}l@{}}Requisiti ben\\ definiti e chiara\\ pianificazione\\ degli sprint\end{tabular} \\
-                                                                                  &                                                                                                             & \multicolumn{1}{l}{} & \multicolumn{1}{l}{}  &                                                                                                           \\
-    \begin{tabular}[c]{@{}l@{}}Ritardi di \\ sviluppo\end{tabular}                & \begin{tabular}[c]{@{}l@{}}Ritardi di sviluppo\\ rispetto al\\ piano scelto\end{tabular}                    & Media                & Media                 & \begin{tabular}[c]{@{}l@{}}Definizione di\\ obiettivi\\ intermedi\\ raggiungibili\end{tabular}              \\
-                                                                                  &                                                                                                             & \multicolumn{1}{l}{} & \multicolumn{1}{l}{}  &                                                                                                           \\
-    \begin{tabular}[c]{@{}l@{}}Corruzione\\dei dati di\\ salvataggio\end{tabular} & \begin{tabular}[c]{@{}l@{}}Perdita di dati\\ a causa di\\un problema\end{tabular}                           & Bassa                & Bassa                 & \begin{tabular}[c]{@{}l@{}}Implementare\\backup\\automatici\end{tabular}                                  \\
-                                                                                  &                                                                                                             & \multicolumn{1}{l}{} & \multicolumn{1}{l}{}  &                                                                                                           \\
-    \begin{tabular}[c]{@{}l@{}}Bug nel\\codice\end{tabular}                       & \begin{tabular}[c]{@{}l@{}}Presenza di bug\\nella logica\\del gioco\end{tabular}                            & Alta                 & Alta                  & \begin{tabular}[c]{@{}l@{}}Implementare\\ test esaustivi\\ durante l’intero\\ sviluppo\end{tabular}       \\ \bottomrule
+    \hline
+    \textbf{Nome}                                                                           & \textbf{Descrizione}                                                                                        & \textbf{Probabilità} & \textbf{Pericolosità} & \textbf{Prevenzione}                                                                                         \\ \hline
+    \textbf{\textit{Scope creep}}                                                           & \begin{tabular}[c]{@{}l@{}}Provare ad\\ implementare\\ troppi requisiti\end{tabular}                        & Media                & Alta                  & \begin{tabular}[c]{@{}l@{}}Requisiti ben\\ definiti e chiara\\ pianificazione\\ degli sprint\end{tabular}    \\ \hline
+    \textbf{\begin{tabular}[c]{@{}l@{}}Ritardi di \\ sviluppo\end{tabular}}                 & \begin{tabular}[c]{@{}l@{}}Ritardi di sviluppo\\ rispetto al\\ piano scelto\end{tabular}                    & Media                & Media                 & \begin{tabular}[c]{@{}l@{}}Definizione di\\ obiettivi\\ intermedi\\ raggiungibili\end{tabular}               \\ \hline
+    \textbf{\begin{tabular}[c]{@{}l@{}}Corruzione\\dei dati di\\ salvataggio\end{tabular}}  & \begin{tabular}[c]{@{}l@{}}Perdita di dati\\ a causa di\\un problema\end{tabular}                           & Bassa                & Bassa                 & \begin{tabular}[c]{@{}l@{}}Implementare\\backup\\automatici\end{tabular}                                     \\ \hline
+    \textbf{\begin{tabular}[c]{@{}l@{}}Bug nel\\codice\end{tabular}}                        & \begin{tabular}[c]{@{}l@{}}Presenza di bug\\nella logica\\del gioco\end{tabular}                            & Alta                 & Alta                  & \begin{tabular}[c]{@{}l@{}}Implementare\\ test esaustivi\\ durante l’intero\\ sviluppo\end{tabular}          \\ \hline
     \end{tabular}
     \caption{Analisi dei rischi del progetto}
 \end{table}
@@ -149,6 +146,8 @@ Il sistema è suddiviso in tre layer principali:
 \newpage
 \subsection{Diagramma delle classi}
 Il diagramma delle classi seguente illustra le principali classi del sistema e le loro relazioni.
+
+Le classi sono organizzate in base ai layer logici sopra descritti, evidenziando le responsabilità di ciascuna classe e le interazioni tra di esse.
 
 \begin{figure}[h]
     \centering
