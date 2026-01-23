@@ -12,4 +12,4 @@
 *.blg
 
 # Uncomment this if you want to keep the pdf
-# !main.pdf
+!main.pdf
