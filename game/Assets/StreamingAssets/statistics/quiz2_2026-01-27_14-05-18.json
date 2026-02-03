@@ -1,0 +1,78 @@
+{
+  "score": 17,
+  "passingScore": 13,
+  "date": "2026-01-27_14-05-18",
+  "questions": [
+    {
+      "questionText": "Quale impero crollò dopo la Prima guerra mondiale?",
+      "selectedAnswer": [
+        "Impero britannico",
+        "Impero ottomano"
+      ]
+    },
+    {
+      "questionText": "Quale evento fece entrare gli USA nella Seconda guerra mondiale?",
+      "selectedAnswer": [
+        "Attacco a Pearl Harbor"
+      ]
+    },
+    {
+      "questionText": "In che anno iniziò la Seconda guerra mondiale?",
+      "selectedAnswer": [
+        "1937",
+        "1938",
+        "1039"
+      ]
+    },
+    {
+      "questionText": "Quale paese NON faceva parte dell’Asse?",
+      "selectedAnswer": [
+        "Francia"
+      ]
+    },
+    {
+      "questionText": "In quale paese nacque il nazismo?",
+      "selectedAnswer": [
+        "Germania"
+      ]
+    },
+    {
+      "questionText": "Quale ideologia si affermò in Italia negli anni ’20?",
+      "selectedAnswer": [
+        "Fascismo"
+      ]
+    },
+    {
+      "questionText": "Chi guidò la Rivoluzione d’Ottobre?",
+      "selectedAnswer": [
+        "Lenin"
+      ]
+    },
+    {
+      "questionText": "Che cos’era la Gestapo?",
+      "selectedAnswer": [
+        "La polizia segreta nazista"
+      ]
+    },
+    {
+      "questionText": "Cos’era il Patto di Varsavia?",
+      "selectedAnswer": [
+        "Un’alleanza militare socialista"
+      ]
+    },
+    {
+      "questionText": "In che anno finì la Prima guerra mondiale?",
+      "selectedAnswer": [
+        "1919",
+        "1920",
+        "1918"
+      ]
+    },
+    {
+      "questionText": "Chi era Adolf Hitler?",
+      "selectedAnswer": [
+        "Il capo del partito nazista"
+      ]
+    }
+  ]
+}
