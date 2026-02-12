@@ -139,9 +139,17 @@ Il sistema è suddiviso in tre layer principali:
 
 \begin{enumerate}
     \item \textit{Data Layer (Model)}: Responsabile della gestione dei dati. Include classi per la rappresentazione di quiz, domande e risposte. Classi principali: \textit{QuestionData}, \textit{GameData} e \textit{JsonHelper}.
-    \item \textit{Logic Layer (Controller)}: Gestisce il flusso dell'applicazione e le regole di business. Coordina le interazioni tra i dati e la visualizzazione. Classi principali: \textit{QuizManager}, \textit{QuizCRUD} e \textit{QuizHistoryManager}.
     \item \textit{Presentation Layer (View)}: Responsabile della visualizzazione dei dati a schermo. Classi principali: \textit{SceneLoader}, \textit{AnswerScript} e \textit{PanelManager}.
+    \item \textit{Logic Layer (Controller)}: Gestisce il flusso dell'applicazione e le regole di business. Coordina le interazioni tra i dati e la visualizzazione. Classi principali: \textit{QuizManager}, \textit{QuizCRUD} e \textit{QuizHistoryManager}.
 \end{enumerate}
+
+\subsection{Diagramma dei componenti}
+Il diagramma dei componenti seguente illustra i componenti del gioco Quiz Me!, collegati tra di loro tramite le interfaccie utilizzate.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=12cm]{images/architecture_diagram.png}
+    \caption{Diagramma dei componenti del serious game}
+\end{figure}
 
 \newpage
 \subsection{Diagramma delle classi}
@@ -155,9 +163,12 @@ Le classi sono organizzate in base ai layer logici sopra descritti, evidenziando
     \caption{Diagramma delle classi del serious game}
 \end{figure}
 
+
+
+
 \newpage
 \subsection{Diagramma delle attività}
-Il diagramma delle attività seguente illustra i flussi di lavoro del sistema relativi al gioco dei quiz.
+Il diagramma delle attività seguente illustra i flussi di lavoro del sistema relativi all'uso del programma per giocare ad un quiz.
 
 \begin{figure}[H]
     \centering
