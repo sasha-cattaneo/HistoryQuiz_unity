@@ -17,13 +17,15 @@ public class QuizCRUD : MonoBehaviour
     public GameObject saveButton;
     public float messageDuration = 4f;
     private bool isEdit = false;
-    public string folderPath = Application.streamingAssetsPath + "/Quiz/";
+    public string folderPath;
 
     // Keep track of the number of questions added
     public int questionCount = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        folderPath = Path.Combine(Application.persistentDataPath, "Quiz") + "/";
+
         errorMessage.gameObject.SetActive(false);
 
         // Ensure the quizPanel has a VerticalLayoutGroup for proper layout
@@ -41,7 +43,7 @@ public class QuizCRUD : MonoBehaviour
     // Add every quiz existing in the Quiz folder to the quizPanel
     void PopulateQuizList()
     {
-        string filePath = Application.streamingAssetsPath + "/Quiz/";
+        string filePath = folderPath;
 
         if (Directory.Exists(filePath))
         {
@@ -629,7 +631,7 @@ public class QuizCRUD : MonoBehaviour
     {
         // Open file with filter
         var extensions = new[] {
-            new ExtensionFilter("Quiz File", "quiz"),
+            new ExtensionFilter("Json File", "json"),
             new ExtensionFilter("Tutti i file", "*" ),
         };
         string[] paths = StandaloneFileBrowser.OpenFilePanel("Importa File", "", extensions, true);

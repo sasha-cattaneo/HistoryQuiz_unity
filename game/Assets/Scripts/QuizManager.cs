@@ -24,9 +24,14 @@ public class QuizManager : MonoBehaviour
     public string logFilePath;
     public ResultData resultData;
     public int logQuestionCounter = -1;
+    public string log_folder_path;
+    public string quiz_folder_path;
 
     void Start()
     {
+        log_folder_path = Path.Combine(Application.persistentDataPath, "statistics") + "/";
+        quiz_folder_path = Path.Combine(Application.persistentDataPath, "Quiz") + "/";
+
         loadQuiz();
         setPassingScore();
         generateQuestion();
@@ -70,7 +75,7 @@ public class QuizManager : MonoBehaviour
 
         // Load all questions
         allAvailableQuestions = new List<QuestionData>();
-        string quizFile = Application.streamingAssetsPath + "/questions.json";
+        string quizFile = Path.Combine(Application.persistentDataPath, "questions.json");
         if (File.Exists(quizFile))
         {
             string dataAsJson = File.ReadAllText(quizFile);
@@ -97,14 +102,14 @@ public class QuizManager : MonoBehaviour
             }
         }
         // Initialize log file
-        logFilePath = Application.streamingAssetsPath + "/statistics/daily_" + DateTime.Today.ToString("yyyy-MM-dd") + ".json";
+        logFilePath = log_folder_path + "/daily_" + DateTime.Today.ToString("yyyy-MM-dd") + ".json";
 
         initializeLogFile();
 
     }
     private void setRegularQuiz()
     {
-        string filePath = Application.streamingAssetsPath + "/Quiz/" + GameData.selectedQuiz + ".json";
+        string filePath = quiz_folder_path + GameData.selectedQuiz + ".json";
 
         if (File.Exists(filePath))
         {
@@ -112,7 +117,7 @@ public class QuizManager : MonoBehaviour
             questions = JsonHelper.FromJson<QuestionData>(dataAsJson);
 
             // Initialize log file
-            logFilePath = Application.streamingAssetsPath + "/statistics/" + GameData.selectedQuiz + "_" + DateTime.Now.ToString("yyyy-MM-dd_HH-mm") + ".json";
+            logFilePath = log_folder_path + GameData.selectedQuiz + "_" + DateTime.Now.ToString("yyyy-MM-dd_HH-mm") + ".json";
 
             initializeLogFile();
 
@@ -234,7 +239,7 @@ public class QuizManager : MonoBehaviour
     public void initializeLogFile()
     {
         resultData = new ResultData();
-        resultData.date = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
+        resultData.date = DateTime.Now.ToString("yyyy-MM-dd_HH-mm");
         resultData.questions = new ResultQuestion[questions.Count];
         for (int i = 0; i < questions.Count; i++)
         {

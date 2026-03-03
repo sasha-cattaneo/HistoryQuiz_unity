@@ -14,7 +14,7 @@ public class QuizHistoryManager : MonoBehaviour
     public GameObject quizPanelPrefab;
     public GameObject questionPanelPrefab;
     public GameObject questionAttemptPrefab;
-    public string folderPath = Application.streamingAssetsPath + "/statistics/";
+    public string folderPath;
     public ResultData resultData;
     public int questionCount = 0;
     public Sprite checkMarkSprite;
@@ -22,6 +22,7 @@ public class QuizHistoryManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        folderPath = Path.Combine(Application.persistentDataPath, "statistics");
         // Ensure the quizPanel has a VerticalLayoutGroup for proper layout
         VerticalLayoutGroup layoutGroup = quizHistoryPanel.GetComponent<VerticalLayoutGroup>();
         if (layoutGroup == null)
@@ -52,7 +53,7 @@ public class QuizHistoryManager : MonoBehaviour
                 if (validateQuiz(fileInfo.FullName))
                 {
                     string fileName = Path.GetFileNameWithoutExtension(fileInfo.FullName);
-                    //Debug.Log("Found quiz file: " + fileName);
+                    Debug.Log("Found quiz file: " + fileName);
 
                     addQuizPanel(fileName);
                 }
@@ -237,7 +238,7 @@ public class QuizHistoryManager : MonoBehaviour
     // Load quiz data from file
     ResultData loadData(string fileName)
     {
-        string filePath = folderPath + fileName + ".json";
+        string filePath = folderPath +"/"+ fileName + ".json";
         ResultData data = new ResultData();
 
         if (File.Exists(filePath))

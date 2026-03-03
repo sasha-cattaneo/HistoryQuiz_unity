@@ -11,8 +11,27 @@ public class HomepageManager : MonoBehaviour
     public TMP_Text dailyScoreText;
     public Button dailyButton;
     private bool isDailyDone = false;
+    public string log_folder_path;
+    public string quiz_folder_path;
     void Start()
     {
+        log_folder_path = Path.Combine(Application.persistentDataPath, "statistics");
+        quiz_folder_path = Path.Combine(Application.persistentDataPath, "Quiz");
+        Debug.Log("Persistent data path: " + Application.persistentDataPath);
+        Debug.Log("Log folder path: " + log_folder_path);
+        Debug.Log("Quiz folder path: " + quiz_folder_path);
+        if (!Directory.Exists(log_folder_path))
+        {
+            Directory.CreateDirectory(log_folder_path);
+            Debug.Log("Created log folder at: " + log_folder_path);
+        }
+        if (!Directory.Exists(quiz_folder_path))
+        {
+            Directory.CreateDirectory(quiz_folder_path);
+            Debug.Log("Created quiz folder at: " + quiz_folder_path);
+        }
+        quiz_folder_path = quiz_folder_path + "/";
+
         string lastDaily = PlayerPrefs.GetString("lastDaily", "");Debug.Log("Last daily date: " + lastDaily);
         Debug.Log("is daily set: "+ GameData.daily);
         isDailyDone = lastDaily == System.DateTime.Today.ToString("yyyy-MM-dd");
@@ -33,7 +52,7 @@ public class HomepageManager : MonoBehaviour
     {
         categoryDropdown.ClearOptions();
 
-        string filePath = Application.streamingAssetsPath + "/Quiz/";
+        string filePath = quiz_folder_path;
 
         List<string> quizOptions = new List<string>();
 
