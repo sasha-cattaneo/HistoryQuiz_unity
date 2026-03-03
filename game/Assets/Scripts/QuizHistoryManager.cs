@@ -75,8 +75,15 @@ public class QuizHistoryManager : MonoBehaviour
         string year = temp_date.Split('-')[0];
         string month = temp_date.Split('-')[1];
         string day = temp_date.Split('-')[2];
-
-        string date = day + "/" + month + "/" + year + " " + fileName.Split('_')[2].Replace("-", ":");
+        string date;
+        if(name != "daily")
+        {
+            date = day + "/" + month + "/" + year + " " + fileName.Split('_')[2].Replace("-", ":");
+        }
+        else
+        {
+            date = day + "/" + month + "/" + year;
+        }
         // Create a new panel for the quiz and resize the parent panel
         GameObject panel = Instantiate(quizPanelPrefab, quizHistoryPanel.transform);
         panel.transform.Find("QuizName").gameObject.GetComponent<TextMeshProUGUI>().text = name;
@@ -118,9 +125,16 @@ public class QuizHistoryManager : MonoBehaviour
         string year = temp_date.Split('-')[0];
         string month = temp_date.Split('-')[1];
         string day = temp_date.Split('-')[2];
+        string date;
 
-        string date = day + "/" + month + "/" + year + " " + fileName.Split('_')[2].Replace("-", ":");
-
+        if(name != "daily")
+        {
+            date = day + "/" + month + "/" + year + " " + fileName.Split('_')[2].Replace("-", ":");
+        }
+        else
+        {
+            date = day + "/" + month + "/" + year;
+        }
         resetQuizDetailsPanel();
         Debug.Log("Showing details of: " + fileName);
         quizDetailsPanel.SetActive(true);

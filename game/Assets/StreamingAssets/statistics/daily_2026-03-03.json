@@ -1,0 +1,97 @@
+{
+  "score": 0,
+  "passingScore": 16,
+  "date": "2026-03-03_12-12-18",
+  "questions": [
+    {
+      "questionText": "In che anno iniziò la Seconda guerra mondiale?",
+      "selectedAnswer": [
+        "1937",
+        "1938",
+        "1940",
+        "1939"
+      ]
+    },
+    {
+      "questionText": "Cosa furono la perestrojka e la glasnost?",
+      "selectedAnswer": [
+        "Guerre",
+        "Partiti politici",
+        "Trattati militari",
+        "Riforme sovietiche"
+      ]
+    },
+    {
+      "questionText": "Quali due blocchi si fronteggiavano nella Guerra Fredda?",
+      "selectedAnswer": [
+        "Europa e Asia",
+        "Nord e Sud",
+        "Cina e Giappone",
+        "USA e URSS"
+      ]
+    },
+    {
+      "questionText": "Cos’è la Costituzione italiana?",
+      "selectedAnswer": [
+        "Una legge ordinaria",
+        "Un decreto",
+        "Un trattato internazionale",
+        "La legge fondamentale dello Stato"
+      ]
+    },
+    {
+      "questionText": "Quale campo era un campo di sterminio nazista?",
+      "selectedAnswer": [
+        "Dachau",
+        "Alcatraz",
+        "Guantanamo",
+        "Auschwitz"
+      ]
+    },
+    {
+      "questionText": "Dove avvenne lo sbarco in Normandia?",
+      "selectedAnswer": [
+        "Italia",
+        "Olanda",
+        "Belgio",
+        "Francia"
+      ]
+    },
+    {
+      "questionText": "Cos’era l’Olocausto?",
+      "selectedAnswer": [
+        "Una battaglia",
+        "Un trattato",
+        "Una rivolta",
+        "Lo sterminio degli ebrei"
+      ]
+    },
+    {
+      "questionText": "Chi era il presidente USA durante la fine della Seconda guerra mondiale?",
+      "selectedAnswer": [
+        "Truman",
+        "Kennedy",
+        "Eisenhower",
+        "Roosevelt"
+      ]
+    },
+    {
+      "questionText": "Quali città giapponesi furono colpite dalla bomba atomica?",
+      "selectedAnswer": [
+        "Tokyo e Kyoto",
+        "Osaka e Kobe",
+        "Yokohama e Nagoya",
+        "Hiroshima e Nagasaki"
+      ]
+    },
+    {
+      "questionText": "In che anno finì la Seconda guerra mondiale in Europa?",
+      "selectedAnswer": [
+        "1943",
+        "1944",
+        "1946",
+        "1945"
+      ]
+    }
+  ]
+}

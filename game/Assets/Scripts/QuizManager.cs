@@ -112,7 +112,7 @@ public class QuizManager : MonoBehaviour
             questions = JsonHelper.FromJson<QuestionData>(dataAsJson);
 
             // Initialize log file
-            logFilePath = Application.streamingAssetsPath + "/statistics/" + GameData.selectedQuiz + "_" + DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss") + ".json";
+            logFilePath = Application.streamingAssetsPath + "/statistics/" + GameData.selectedQuiz + "_" + DateTime.Now.ToString("yyyy-MM-dd_HH-mm") + ".json";
 
             initializeLogFile();
 
