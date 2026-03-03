@@ -29,6 +29,8 @@ public class HomepageManager : MonoBehaviour
         {
             Directory.CreateDirectory(quiz_folder_path);
             Debug.Log("Created quiz folder at: " + quiz_folder_path);
+
+            importQuizzes();
         }
         quiz_folder_path = quiz_folder_path + "/";
 
@@ -131,5 +133,31 @@ public class HomepageManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("dailyStreak", 0);
         PlayerPrefs.Save();
+    }
+
+    void importQuizzes()
+    {
+        string sourcePath = Path.Combine(Application.streamingAssetsPath, "Quiz");
+        if (Directory.Exists(sourcePath))
+        {
+            string[] files = Directory.GetFiles(sourcePath, "*.json");
+            foreach (var file in files)
+            {
+                string destFile = Path.Combine(quiz_folder_path, Path.GetFileName(file));
+                if (!File.Exists(destFile))
+                {
+                    File.Copy(file, destFile);
+                    Debug.Log("Copied quiz file: " + file + " to " + destFile);
+                }
+                else
+                {
+                    Debug.Log("Quiz file already exists: " + destFile);
+                }
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Source quiz directory not found: " + sourcePath);
+        }
     }
 }
