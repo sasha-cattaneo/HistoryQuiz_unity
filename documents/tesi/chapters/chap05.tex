@@ -20,8 +20,9 @@ Sono state implementate due modalità di gioco:
             
         Un quiz viene considerato completato con successo se l’utente riesce a raggiungere almeno il 60\% del punteggio massimo ottenibile.
     \item La modalità \textit{Daily}: nella quale l’utente può giocare ad un quiz giornaliero, creato automaticamente in modo da avere un quiz diverso ogni giorno.
-
-        Se l’utente riesce a completare con successo il quiz, cioè con almeno 80\% del punteggio massimo, aumenterà di uno un contatore dei giorni consecutivi in cui il quiz giornaliero è stato completato con successo. Questo contatore viene chiamato \textit{streak}.
+        
+        L'utente ha una sola possibilità per completare questo quiz. Quando riesce a completarlo con successo, cioè con almeno 80\% del punteggio massimo, la sua \textit{streak} cresce di uno.
+        La \textit{streak} è un contatore dei giorni consecutivi in cui il quiz giornaliero è stato completato con successo.
 
         La \textit{streak} viene resettata nel momento in cui il quiz giornaliero viene fallito o al primo giorno in cui non viene completato.
 \end{itemize}
@@ -94,7 +95,7 @@ Per la gestione dei file dei quiz è stato scelto di utilizzare il formato JSON,
 
 Questo formato è stato scelto in quanto è un formato leggibile sia da umani sia da computer, permettendo così ai professori che conoscono il formato di poter modificare i quiz anche senza utilizzare il gioco, mentre per gli altri docenti è stata creata una pagina specifica nel gioco.
 
-Altri vantaggi di questo formato sono la leggerezza, che facilità le operazioni di condivisione dei quiz tra i docenti e i loro studenti, e la possibilità di usare degli strumenti già sviluppati per verificare l'integrità del file e per garantire che si tratti di un quiz valido.
+Altri vantaggi di questo formato sono la leggerezza, che facilita le operazioni di condivisione dei quiz tra i docenti e i loro studenti, e la possibilità di usare degli strumenti già sviluppati per verificare l'integrità del file e per garantire che si tratti di un quiz valido.
 
 \section{Meccaniche pedagogiche implementate}
 Per rendere il gioco coinvolgente e divertente, sono state usate varie strategie di \textit{game design}.
