@@ -13,10 +13,12 @@ public class HomepageManager : MonoBehaviour
     private bool isDailyDone = false;
     public string log_folder_path;
     public string quiz_folder_path;
+    public string questionsPath;
     void Start()
     {
         log_folder_path = Path.Combine(Application.persistentDataPath, "statistics");
         quiz_folder_path = Path.Combine(Application.persistentDataPath, "Quiz");
+        questionsPath = Path.Combine(Application.persistentDataPath, "questions.json");
         Debug.Log("Persistent data path: " + Application.persistentDataPath);
         Debug.Log("Log folder path: " + log_folder_path);
         Debug.Log("Quiz folder path: " + quiz_folder_path);
@@ -31,6 +33,10 @@ public class HomepageManager : MonoBehaviour
             Debug.Log("Created quiz folder at: " + quiz_folder_path);
 
             importQuizzes();
+        }
+        if (!File.Exists(questionsPath))
+        {
+            importDailyQuestions();
         }
         quiz_folder_path = quiz_folder_path + "/";
 
@@ -158,6 +164,27 @@ public class HomepageManager : MonoBehaviour
         else
         {
             Debug.LogWarning("Source quiz directory not found: " + sourcePath);
+        }
+        
+    }
+    void importDailyQuestions()
+    {
+        string sourcePath = Path.Combine(Application.streamingAssetsPath, "questions.json");
+        if (File.Exists(sourcePath))
+        {
+            if (!File.Exists(questionsPath))
+            {
+                File.Copy(sourcePath, questionsPath);
+                Debug.Log("Copied daily questions file: " + sourcePath + " to " + questionsPath);
+            }
+            else
+            {
+                Debug.Log("Daily questions file already exists: " + questionsPath);
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Source daily questions file not found: " + sourcePath);
         }
     }
 }
