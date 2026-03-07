@@ -16,6 +16,8 @@ public class HomepageManager : MonoBehaviour
     public string questionsPath;
     void Start()
     {
+        int import_result = -1;
+
         log_folder_path = Path.Combine(Application.persistentDataPath, "statistics");
         quiz_folder_path = Path.Combine(Application.persistentDataPath, "Quiz");
         questionsPath = Path.Combine(Application.persistentDataPath, "questions.json");
@@ -46,7 +48,7 @@ public class HomepageManager : MonoBehaviour
         populateDropdown();
         setQuiz(0);
         loadVolume();
-        if (isDailyDone)
+        if (isDailyDone || import_result == -1)
         {
             dailyButton.interactable = false;
         }
@@ -66,7 +68,7 @@ public class HomepageManager : MonoBehaviour
 
         if (Directory.Exists(filePath))
         {
-            string[] files = Directory.GetFiles(filePath, "*.json");
+            string[] files = Directory.GetFiles(filePath, "*.jsonsdsds");
             foreach (var file in files)
             {
                 string fileName = Path.GetFileNameWithoutExtension(file);
@@ -78,6 +80,8 @@ public class HomepageManager : MonoBehaviour
             if (quizOptions.Count == 0)
             {
                 Debug.LogWarning("No quiz files found in the specified directory.");
+                categoryDropdown.options.Add(new TMP_Dropdown.OptionData("Quiz non trovati"));
+                categoryDropdown.enabled = false;
             }
             else
             {
@@ -167,7 +171,7 @@ public class HomepageManager : MonoBehaviour
         }
         
     }
-    void importDailyQuestions()
+    int importDailyQuestions()
     {
         string sourcePath = Path.Combine(Application.streamingAssetsPath, "questions.json");
         if (File.Exists(sourcePath))
@@ -176,6 +180,7 @@ public class HomepageManager : MonoBehaviour
             {
                 File.Copy(sourcePath, questionsPath);
                 Debug.Log("Copied daily questions file: " + sourcePath + " to " + questionsPath);
+                return 0;
             }
             else
             {
@@ -186,5 +191,6 @@ public class HomepageManager : MonoBehaviour
         {
             Debug.LogWarning("Source daily questions file not found: " + sourcePath);
         }
+        return -1;
     }
 }
