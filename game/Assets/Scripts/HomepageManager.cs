@@ -16,7 +16,7 @@ public class HomepageManager : MonoBehaviour
     public string questionsPath;
     void Start()
     {
-        int import_result = -1;
+        int import_result = 0;
 
         log_folder_path = Path.Combine(Application.persistentDataPath, "statistics");
         quiz_folder_path = Path.Combine(Application.persistentDataPath, "Quiz");
@@ -38,7 +38,7 @@ public class HomepageManager : MonoBehaviour
         }
         if (!File.Exists(questionsPath))
         {
-            importDailyQuestions();
+            import_result = importDailyQuestions();
         }
         quiz_folder_path = quiz_folder_path + "/";
 
@@ -68,7 +68,7 @@ public class HomepageManager : MonoBehaviour
 
         if (Directory.Exists(filePath))
         {
-            string[] files = Directory.GetFiles(filePath, "*.jsonsdsds");
+            string[] files = Directory.GetFiles(filePath, "*.json");
             foreach (var file in files)
             {
                 string fileName = Path.GetFileNameWithoutExtension(file);
@@ -178,9 +178,17 @@ public class HomepageManager : MonoBehaviour
         {
             if (!File.Exists(questionsPath))
             {
-                File.Copy(sourcePath, questionsPath);
-                Debug.Log("Copied daily questions file: " + sourcePath + " to " + questionsPath);
-                return 0;
+                if (!JsonHelper.ValidateJson(File.ReadAllText(sourcePath)))
+                {
+                    Debug.LogError("Invalid JSON format in source daily questions file: " + sourcePath);
+                }
+                else
+                {
+                    File.Copy(sourcePath, questionsPath);
+                    Debug.Log("Copied daily questions file: " + sourcePath + " to " + questionsPath);
+                    return 0;
+                }
+                
             }
             else
             {
@@ -192,5 +200,14 @@ public class HomepageManager : MonoBehaviour
             Debug.LogWarning("Source daily questions file not found: " + sourcePath);
         }
         return -1;
+    }
+    void resetDaily()
+    {
+        PlayerPrefs.SetString("lastDaily", "");
+        PlayerPrefs.SetInt("dailyStreak", 0);
+        PlayerPrefs.Save();
+        dailyButton.interactable = true;
+        isDailyDone = false;
+        loadDailyScore();
     }
 }
